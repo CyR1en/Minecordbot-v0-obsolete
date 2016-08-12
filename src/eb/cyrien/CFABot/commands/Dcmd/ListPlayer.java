@@ -7,7 +7,7 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-public class ListPlayer implements Command {
+public class ListPlayer extends Command {
     public static final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "lp";
 
     @Override

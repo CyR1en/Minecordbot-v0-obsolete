@@ -4,7 +4,7 @@ import eb.cyrien.CFABot.Command;
 import eb.cyrien.CFABot.Main;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
-public class Ping implements Command {
+public class Ping extends Command {
 
     private final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "ping";
 

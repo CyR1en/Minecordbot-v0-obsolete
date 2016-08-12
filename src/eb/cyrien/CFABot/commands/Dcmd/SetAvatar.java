@@ -11,14 +11,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class SetAvatar implements Command {
+public class SetAvatar extends Command {
 
     public static final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "SetAvatar <Image URL>";
 
     @Override
     public boolean called(String[] args, MessageReceivedEvent e) {
         String authID = e.getAuthor().getId();
-        if (!Main.hasPermission(authID, e))
+        if (!hasPermission(authID))
             if (!authID.trim().toLowerCase().equalsIgnoreCase(Main.botConfig.OWNER_ID.trim().toLowerCase()))
                 return false;
         try {
@@ -57,7 +57,11 @@ public class SetAvatar implements Command {
         if (success)
             e.getTextChannel().sendMessage("Success :ok_hand:");
         else
-            e.getTextChannel().sendMessage("Something went wrong... Check your permissions or your URL");
+            e.getTextChannel().sendMessage(noPermMessage());
     }
 
- }
+    @Override
+    public String noPermMessage() {
+        return "```css\nSomething went wrong... Check your permissions or your URL\n```";
+    }
+}

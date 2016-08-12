@@ -4,14 +4,14 @@ import eb.cyrien.CFABot.Command;
 import eb.cyrien.CFABot.Main;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
-public class SetGame implements Command {
+public class SetGame extends Command {
 
     public static final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "setgame <text>";
 
     @Override
     public boolean called(String[] args, MessageReceivedEvent e) {
         String authID = e.getAuthor().getId();
-        if(!Main.hasPermission(authID, e))
+        if(!hasPermission(authID))
             if(!authID.trim().equalsIgnoreCase(Main.botConfig.OWNER_ID.trim()))
                 return false;
         return true;
@@ -33,6 +33,6 @@ public class SetGame implements Command {
         if(success)
             e.getTextChannel().sendMessage(":white_check_mark:");
         else
-            e.getTextChannel().sendMessage("`You don't have permission`");
+            e.getTextChannel().sendMessage(noPermMessage());
     }
 }
