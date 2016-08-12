@@ -18,7 +18,7 @@ Bot is also written in Java for easier Minecraft support.
 
 ## Dependencies
   * JDA
-  * CrafBukkit1.x
+  * CraftBukkit1.x
 
 ## To see the bot in Action
   * Join our Discord server: https://discord.gg/Dv7vbzJ .
