@@ -13,19 +13,19 @@ public class MEventListener implements Listener {
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent e) {
         String p = e.getPlayer().getName();
-        Main.jda.getTextChannelById(Main.botConfig.BINDED_CHANNEL).sendMessage("`" + p + " left the game`");
+        Main.jda.getTextChannelById(Main.botConfig.BINDED_CHANNEL).sendMessage("```css\n" + p + " left the game```");
     }
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
         String p = e.getPlayer().getName();
-        Main.jda.getTextChannelById(Main.botConfig.BINDED_CHANNEL).sendMessage("`" + p + " joined the game`");
+        Main.jda.getTextChannelById(Main.botConfig.BINDED_CHANNEL).sendMessage("```css\n" + p + " joined the game```");
     }
 
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent e) {
         String msg = e.getDeathMessage();
-        Main.jda.getTextChannelById(Main.botConfig.BINDED_CHANNEL).sendMessage("`" + msg + "`");
+        Main.jda.getTextChannelById(Main.botConfig.BINDED_CHANNEL).sendMessage("```css\n" + "["+ msg + "]\n" + "```");
     }
 
     @EventHandler
