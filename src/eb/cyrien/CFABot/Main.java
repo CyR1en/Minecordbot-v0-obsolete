@@ -58,6 +58,7 @@ public class Main extends JavaPlugin {
         commands.put("setavatar", new SetAvatar());
         commands.put("ls", new ListPlayer());
         commands.put("setgame", new SetGame());
+        commands.put("syntest", new SynTest());
     }
 
     @Override
@@ -100,7 +101,7 @@ public class Main extends JavaPlugin {
     public static boolean hasPermission(String userID, MessageReceivedEvent e) {
         ArrayList<String> wl = Main.botConfig.WHITELIST;
         for (String s : wl) {
-            if(s.equals(wl))
+            if(s.equals(userID))
                 return true;
         }
         return false;
