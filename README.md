@@ -10,5 +10,5 @@ glad to release it so everybody could use it and use it to make your Discord and
 Minecraft servers better.
 
 # To see the bot in Action
-Join our Discord server: https://discord.gg/Dv7vbzJ
-Join our Minecraft server: thewobros.mcph.co
+Join our Discord server: https://discord.gg/Dv7vbzJ .
+Join our Minecraft server: thewobros.mcph.co .
