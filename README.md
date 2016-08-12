@@ -21,5 +21,5 @@ Bot is also written in Java for easier Minecraft support.
   * CraftBukkit1.x
 
 ## To see the bot in Action
-  * Join our Discord server: https://discord.gg/Dv7vbzJ .
-  * Join our Minecraft server: thewobros.mcph.co .
+  * Join our Discord server: https://discord.gg/Dv7vbzJ
+  * Join our Minecraft server: thewobros.mcph.co
