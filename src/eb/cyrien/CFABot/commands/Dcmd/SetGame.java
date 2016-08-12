@@ -33,6 +33,6 @@ public class SetGame implements Command {
         if(success)
             e.getTextChannel().sendMessage(":white_check_mark:");
         else
-            e.getTextChannel().sendMessage("`You don't have permission");
+            e.getTextChannel().sendMessage("`You don't have permission`");
     }
 }
