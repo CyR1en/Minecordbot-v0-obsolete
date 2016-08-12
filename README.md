@@ -55,6 +55,9 @@ Also I'd say that i'm not the best at programming, since I don't have enough exp
 
 Bot is also written in Java for easier Minecraft support.
 
+Also I've only tested this on CrafBukkit1.9.4. But I will soon be testing newer version of CraftBukkit, even old versions.
+Maybe add support to other versions of Minecraft servers, and other plugins like Multiverse, etc.
+
 ## Dependencies
   * JDA - [https://github.com/DV8FromTheWorld/JDA]
   * CraftBukkit1.x
