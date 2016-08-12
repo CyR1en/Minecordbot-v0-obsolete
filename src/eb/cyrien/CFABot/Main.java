@@ -3,6 +3,7 @@ package eb.cyrien.CFABot;
 import eb.cyrien.CFABot.commands.Dcmd.*;
 import eb.cyrien.CFABot.commands.Mcmd.Dme;
 import eb.cyrien.CFABot.commands.Mcmd.MEventListener;
+import eb.cyrien.CFABot.commands.Mcmd.MReload;
 import eb.cyrien.CFABot.configuration.PluginFile;
 import eb.cyrien.CFABot.utils.BotConfig;
 import eb.cyrien.CFABot.utils.CommandParser;
@@ -16,7 +17,6 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import javax.security.auth.login.LoginException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
@@ -39,6 +39,7 @@ public class Main extends JavaPlugin {
         config = new PluginFile(this, "BotConfig", true);
         botConfig = new BotConfig();
         this.getCommand("dme").setExecutor(new Dme(this));
+        this.getCommand("cfabot").setExecutor(new MReload(this));
         getServer().getPluginManager().registerEvents(new MEventListener(), this);
 
         //discord side initialization
@@ -59,6 +60,8 @@ public class Main extends JavaPlugin {
         commands.put("ls", new ListPlayer());
         commands.put("setgame", new SetGame());
         commands.put("syntest", new SynTest());
+        commands.put("reload", new DReload());
+        commands.put("help", new Help());
     }
 
     @Override
@@ -85,7 +88,7 @@ public class Main extends JavaPlugin {
             author = e.getAuthorName();
         String msg = e.getMessage().getContent();
         for(Player p : Bukkit.getServer().getOnlinePlayers())
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lDiscord&r~[&9&l" + author + "&r]: " + ChatColor.GRAY + msg ));
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lDiscord&r~[&9&l" + author + "&r]: " + ChatColor.WHITE + msg ));
         log.info(author+ " > mc:" + msg );
     }
 
@@ -96,15 +99,6 @@ public class Main extends JavaPlugin {
         jda.getTextChannelById(botConfig.BINDED_CHANNEL).sendMessage("**Wobros ~ [" + author + "]:**  " + msg);
         log.info(author + " > discord: " + msg);
         //jda.getAccountManager().setNickname(jda.getTextChannelById(botConfig.BINDED_CHANNEL).getGuild(), jda.getSelfInfo().getUsername());
-    }
-
-    public static boolean hasPermission(String userID, MessageReceivedEvent e) {
-        ArrayList<String> wl = Main.botConfig.WHITELIST;
-        for (String s : wl) {
-            if(s.equals(userID))
-                return true;
-        }
-        return false;
     }
 
     public static String concatenateArgs(int startIndex,String[] args) {
