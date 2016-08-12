@@ -1,0 +1,15 @@
+name: CFABot
+version: 0.1.5
+author: CyRien
+description: Discord bot that bridge chat from minecraft to discord
+
+main: eb.cyrien.CFABot.Main
+
+commands:
+    dme:
+        description: Discord /me
+        usage: /dme <message>
+        permission: CFABot.dme
+permmission:
+    CFABot.dme:
+        default: op

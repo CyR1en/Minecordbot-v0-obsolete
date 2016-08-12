@@ -1,0 +1,7 @@
+bot_token: MjEyMTA0MDE2NTUxODcwNDY1.ConNJA.Ko-xYyBX4dVg8YAQB6t3_ssK9wg
+owner_id: testID
+chat_channel: 212411288091885568
+command_executor: "~!"
+
+whitelist:
+  - 193970511615623168
