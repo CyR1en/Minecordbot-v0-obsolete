@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 public class Dme implements CommandExecutor {
 
-    Main plug;
+    private Main plug;
 
     public Dme (Main plug) {
         this.plug = plug;
