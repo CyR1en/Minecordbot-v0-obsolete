@@ -3,12 +3,11 @@ package eb.cyrien.CFABot.commands.Dcmd;
 import eb.cyrien.CFABot.Command;
 import eb.cyrien.CFABot.Main;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.managers.AccountManager;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-public class SynTest implements Command{
+public class SynTest extends Command{
 
     public static final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "syntest <test string>";
     private static final String CODE_BLOCK = "```";
@@ -39,11 +38,24 @@ public class SynTest implements Command{
         syns.add("objectivec");
         syns.add("css");
         syns.add("ruby");
-        syns.add("makefile");
+        syns.add("json");
+        syns.add("groovy");
+        syns.add("gradle");
+        syns.add("fortran");
+        syns.add("basic");
+        syns.add("cal");
+        syns.add("fsharp");
+        syns.add("lisp");
+        syns.add("php");
+        syns.add("x86asm");
+        syns.add("scala");
+        syns.add("md");
+        syns.add("lua");
     }
+
     @Override
     public boolean called(String[] args, MessageReceivedEvent e) {
-        if(!Main.hasPermission(e.getAuthor().getId(), e))
+        if(!hasPermission(e.getAuthor().getId()))
             return false;
         return true;
     }
@@ -59,7 +71,7 @@ public class SynTest implements Command{
             e.getTextChannel().sendMessage(out);
             out = "";
             try {
-                TimeUnit.SECONDS.sleep(1);
+                TimeUnit.MILLISECONDS.sleep(800);
             } catch (InterruptedException e1) {
                 e1.printStackTrace();
             }
@@ -78,6 +90,6 @@ public class SynTest implements Command{
             e.getJDA().getAccountManager().setGame(null);
             e.getJDA().getAccountManager().update();
         } else
-            e.getTextChannel().sendMessage("`You don't have permission`");
+            e.getTextChannel().sendMessage(noPermMessage());
     }
 }
