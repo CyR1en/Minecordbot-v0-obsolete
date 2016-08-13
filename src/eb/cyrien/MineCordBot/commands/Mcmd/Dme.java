@@ -18,6 +18,7 @@ public class Dme implements CommandExecutor {
     private boolean preCommand(CommandSender commandSender, Command command, String[] args) {
         if(!command.getName().equalsIgnoreCase("dme"))
             return usage(commandSender);
+        if(!commandSender.hasPermission("minecordbot.dme"))
         if(!(commandSender instanceof Player)) {
             commandSender.sendMessage("Only players can do discord /me");
             return false;

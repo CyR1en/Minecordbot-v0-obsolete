@@ -15,9 +15,9 @@ public class MReload implements CommandExecutor {
     }
 
     private boolean preCommand(CommandSender commandSender, Command command, String[] args) {
-        if(!command.getName().equalsIgnoreCase("MineCordBot"))
+        if(!command.getName().equalsIgnoreCase("minecordbot"))
             return usage(commandSender);
-        if(!commandSender.hasPermission("MineCordBot.reload"))
+        if(!commandSender.hasPermission("minecordbot.reload"))
             return noPerm(commandSender);
         if(args == null || args.length < 1 || args.length > 2)
             return usage(commandSender);
@@ -34,7 +34,7 @@ public class MReload implements CommandExecutor {
 
     private boolean usage(CommandSender cs) {
         cs.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&l=== MineCordBot Usage ==="));
-        cs.sendMessage("/MineCordBot reload");
+        cs.sendMessage("/minecordbot reload");
         return false;
     }
 
