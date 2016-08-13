@@ -14,7 +14,7 @@ commands:
         description: MineCordBot general commands
         usage: /CFA <command>
 permmission:
-    CFABot.dme:
+    minecordbot.dme:
         default: op
-    CFABot.reload:
+    minecordbot.reload:
         default: op
