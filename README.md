@@ -27,7 +27,11 @@ _Tested on CraftBukkit1.9.4_
  * /dme - it's just like /me but it's connected to discord.
  * /reload - reloads botConfig.yml.
  * _More commands to come_.
- 
+
+## Permission nodes
+ * minecordbot.dme    | command: /dme
+ * minecordbot.reload | command: /minecordbot reload
+
 ## Installation
 **First of all** - Make a discord Bot
  * Go to https://discordapp.com/developers/docs/intro
