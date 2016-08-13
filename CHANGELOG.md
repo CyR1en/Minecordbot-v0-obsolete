@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.1.10 (2016-8-12)
+
+**Feature**
+
+  * Better discord help command.   
+  * Added description for commands.
+
+**Code**
+  
+  * Modified code style for all commands to support updated Command.java
+
 ## 0.1.9 (2016-8-12)
 
 **Feature**
