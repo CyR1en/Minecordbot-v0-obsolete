@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.1.9 (2016-8-12)
+
+**Feature**
+  
+  * Use custom prefixes for messages.
+
+**Bug fix**
+  
+  * Fixed permission for /dme command.
+
 ## 0.1.8 (2016-8-11)
 
 **Feature**
