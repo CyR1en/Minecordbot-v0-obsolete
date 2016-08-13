@@ -16,13 +16,13 @@ current version : **MineCordBot_Alpha0.1.10**
 
 `command executor = "~!" | "~!" + command`
  * ~!help - lists all the command you can do for the bot in discord.
- * ~!help <command> - better help for a specific command.
- * ~!setavatar <URL> - change the bot's avatar.
- * ~!setgame <game> - change what the bot's playing.
+ * ~!help [command] - better help for a specific command.
+ * ~!setavatar [URL] - change the bot's avatar.
+ * ~!setgame [game] - change what the bot's playing.
  * ~!ping - test if the bot is resposinve.
  * ~!reload - reload botConfig.yml.
  * ~!ls - lists online players in the server.
- * ~!syntest <text> - Test different syntax highlighting for a specific text.
+ * ~!syntest [text] - Test different syntax highlighting for a specific text.
  * _More commands to come_.
 
 **Minecraft Commands**
