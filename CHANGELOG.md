@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.1.8 (2016-8-11)
+
+**Feature**
+  
+  * Re-Branded, from CFABot to MineCordBot. "CFA" is a personal thing
+
 ## 0.1.7 (2016-8-11)
 
 **Feature**
