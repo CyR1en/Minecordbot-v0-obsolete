@@ -42,7 +42,7 @@ _Tested on CraftBukkit1.9.4_
  `https://discordapp.com/oauth2/authorize?client_id=[Place your bot's Client ID]&scope=bot&permissions=0`
 
 **Install The plugin to your Minecraft Server**
- * Download MineCordBot.jar here http://www.mediafire.com/download/wvmfam1xa6n7dnf/MineCordBot_Alpha0.1.8.jar
+ * Download MineCordBot.jar here https://dev.bukkit.org/bukkit-plugins/minecordbot-bukkit/
  * Put the jar file to your plugin folder in your minecraft server.
  * Start your server.
  * Configure your botConfig.yml
