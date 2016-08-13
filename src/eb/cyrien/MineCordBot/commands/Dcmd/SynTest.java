@@ -8,13 +8,16 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class SynTest extends Command{
+    public  static final String CODE_BLOCK = "```";
 
-    public static final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "syntest <test string>";
-    private static final String CODE_BLOCK = "```";
+    private final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "syntest <test string>";
+    private final String DESCRIPTION = "Test different Markdown Syntax Highlighting";
 
-    private static ArrayList<String> syns;
+    private ArrayList<String> syns;
 
     public SynTest() {
+        setUsage(HELP);
+        setDescription(DESCRIPTION);
         syns = new ArrayList<>();
         syns.add("go");
         syns.add("cofeescript");
@@ -76,11 +79,6 @@ public class SynTest extends Command{
                 e1.printStackTrace();
             }
         }
-    }
-
-    @Override
-    public String help() {
-        return HELP;
     }
 
     @Override

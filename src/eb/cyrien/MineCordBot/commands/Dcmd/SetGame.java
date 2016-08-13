@@ -6,7 +6,13 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 public class SetGame extends Command {
 
-    public static final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "setgame <text>";
+    private final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "setgame <text>";
+    private final String DESCRIPTION = "Set what the bot is playing";
+
+    public SetGame() {
+        setUsage(HELP);
+        setDescription(DESCRIPTION);
+    }
 
     @Override
     public boolean called(String[] args, MessageReceivedEvent e) {
@@ -21,11 +27,6 @@ public class SetGame extends Command {
     public void action(String[] args, MessageReceivedEvent e) {
         e.getJDA().getAccountManager().setGame(Main.concatenateArgs(0, args));
         e.getJDA().getAccountManager().update();
-    }
-
-    @Override
-    public String help() {
-        return HELP;
     }
 
     @Override

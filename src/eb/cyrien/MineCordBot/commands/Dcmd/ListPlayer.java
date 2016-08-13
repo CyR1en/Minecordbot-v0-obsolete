@@ -8,7 +8,14 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 public class ListPlayer extends Command {
-    public static final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "lp";
+
+    private final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "lp";
+    private final String DESCRIPTION = "List all players currently online in your minecraft server";
+
+    public ListPlayer() {
+        setUsage(HELP);
+        setDescription(DESCRIPTION);
+    }
 
     @Override
     public boolean called(String[] args, MessageReceivedEvent e) {
@@ -31,11 +38,6 @@ public class ListPlayer extends Command {
             }
         s += blockFix;
         e.getTextChannel().sendMessage(s);
-    }
-
-    @Override
-    public String help() {
-        return HELP;
     }
 
     @Override

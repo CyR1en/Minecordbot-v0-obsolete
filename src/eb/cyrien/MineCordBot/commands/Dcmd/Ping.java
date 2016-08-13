@@ -7,6 +7,12 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 public class Ping extends Command {
 
     private final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "ping";
+    private final String DESCRIPTION = "Test bot's responsiveness";
+
+    public Ping() {
+        setUsage(HELP);
+        setDescription(DESCRIPTION);
+    }
 
     @Override
     public boolean called(String[] args, MessageReceivedEvent e) {
@@ -18,10 +24,6 @@ public class Ping extends Command {
         e.getTextChannel().sendMessage("PONG!!!");
     }
 
-    @Override
-    public String help() {
-        return HELP;
-    }
 
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {

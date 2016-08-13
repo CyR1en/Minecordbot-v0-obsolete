@@ -13,7 +13,13 @@ import java.net.URLConnection;
 
 public class SetAvatar extends Command {
 
-    public static final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "SetAvatar <Image URL>";
+    private final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "SetAvatar <Image URL>";
+    private final String DESCRIPTION = "Change the bot's Avatar";
+
+    public SetAvatar() {
+        setUsage(HELP);
+        setDescription(DESCRIPTION);
+    }
 
     @Override
     public boolean called(String[] args, MessageReceivedEvent e) {
@@ -45,11 +51,6 @@ public class SetAvatar extends Command {
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
         e.getTextChannel().sendMessage("Setting Avatar");
-    }
-
-    @Override
-    public String help() {
-        return HELP;
     }
 
     @Override

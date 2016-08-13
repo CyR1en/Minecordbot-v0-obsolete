@@ -6,7 +6,14 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 public class DReload extends Command {
 
-    public static final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "reload";
+    private final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "reload";
+    private final String DESCRIPTION = " Reload BotCOnfig.yml";
+
+    public DReload () {
+        setUsage(HELP);
+        setDescription(DESCRIPTION);
+    }
+
     @Override
     public boolean called(String[] args, MessageReceivedEvent e) {
         if(!hasPermission(e.getAuthor().getId()))
@@ -21,15 +28,11 @@ public class DReload extends Command {
     }
 
     @Override
-    public String help() {
-        return HELP;
-    }
-
-    @Override
     public void executed(boolean success, MessageReceivedEvent e) {
         if(success)
             e.getTextChannel().sendMessage(":white_check_mark:");
         else
             e.getTextChannel().sendMessage(noPermMessage());
     }
+
 }
