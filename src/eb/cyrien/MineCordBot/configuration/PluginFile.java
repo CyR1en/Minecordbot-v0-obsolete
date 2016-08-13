@@ -1,6 +1,6 @@
-package eb.cyrien.CFABot.configuration;
+package eb.cyrien.MineCordBot.configuration;
 
-import eb.cyrien.CFABot.Main;
+import eb.cyrien.MineCordBot.Main;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 

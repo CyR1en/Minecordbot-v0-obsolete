@@ -1,12 +1,12 @@
-package eb.cyrien.CFABot;
+package eb.cyrien.MineCordBot;
 
-import eb.cyrien.CFABot.commands.Dcmd.*;
-import eb.cyrien.CFABot.commands.Mcmd.Dme;
-import eb.cyrien.CFABot.commands.Mcmd.MEventListener;
-import eb.cyrien.CFABot.commands.Mcmd.MReload;
-import eb.cyrien.CFABot.configuration.PluginFile;
-import eb.cyrien.CFABot.utils.BotConfig;
-import eb.cyrien.CFABot.utils.CommandParser;
+import eb.cyrien.MineCordBot.commands.Dcmd.*;
+import eb.cyrien.MineCordBot.commands.Mcmd.Dme;
+import eb.cyrien.MineCordBot.commands.Mcmd.MEventListener;
+import eb.cyrien.MineCordBot.commands.Mcmd.MReload;
+import eb.cyrien.MineCordBot.configuration.PluginFile;
+import eb.cyrien.MineCordBot.utils.BotConfig;
+import eb.cyrien.MineCordBot.utils.CommandParser;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.JDABuilder;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;

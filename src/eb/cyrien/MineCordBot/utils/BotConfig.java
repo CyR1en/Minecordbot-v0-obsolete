@@ -1,6 +1,6 @@
-package eb.cyrien.CFABot.utils;
+package eb.cyrien.MineCordBot.utils;
 
-import eb.cyrien.CFABot.Main;
+import eb.cyrien.MineCordBot.Main;
 
 import java.util.ArrayList;
 

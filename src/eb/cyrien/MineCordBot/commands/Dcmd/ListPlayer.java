@@ -1,7 +1,7 @@
-package eb.cyrien.CFABot.commands.Dcmd;
+package eb.cyrien.MineCordBot.commands.Dcmd;
 
-import eb.cyrien.CFABot.Command;
-import eb.cyrien.CFABot.Main;
+import eb.cyrien.MineCordBot.Command;
+import eb.cyrien.MineCordBot.Main;
 import net.dv8tion.jda.entities.TextChannel;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import org.bukkit.Bukkit;

@@ -1,6 +1,6 @@
-package eb.cyrien.CFABot.commands.Mcmd;
+package eb.cyrien.MineCordBot.commands.Mcmd;
 
-import eb.cyrien.CFABot.Main;
+import eb.cyrien.MineCordBot.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,9 +15,9 @@ public class MReload implements CommandExecutor {
     }
 
     private boolean preCommand(CommandSender commandSender, Command command, String[] args) {
-        if(!command.getName().equalsIgnoreCase("CFABot"))
+        if(!command.getName().equalsIgnoreCase("MineCordBot"))
             return usage(commandSender);
-        if(!commandSender.hasPermission("CFABot.reload"))
+        if(!commandSender.hasPermission("MineCordBot.reload"))
             return noPerm(commandSender);
         if(args == null || args.length < 1 || args.length > 2)
             return usage(commandSender);
@@ -33,13 +33,13 @@ public class MReload implements CommandExecutor {
     }
 
     private boolean usage(CommandSender cs) {
-        cs.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&l=== CFABot Usage ==="));
-        cs.sendMessage("/CFABot reload");
+        cs.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&l=== MineCordBot Usage ==="));
+        cs.sendMessage("/MineCordBot reload");
         return false;
     }
 
     private boolean noPerm(CommandSender cs) {
-        cs.sendMessage(ChatColor.RED + "You do not have permission to reload CFABot");
+        cs.sendMessage(ChatColor.RED + "You do not have permission to reload MineCordBot");
         return false;
     }
 

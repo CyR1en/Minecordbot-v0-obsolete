@@ -1,6 +1,6 @@
-package eb.cyrien.CFABot.commands.Mcmd;
+package eb.cyrien.MineCordBot.commands.Mcmd;
 
-import eb.cyrien.CFABot.Main;
+import eb.cyrien.MineCordBot.Main;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;

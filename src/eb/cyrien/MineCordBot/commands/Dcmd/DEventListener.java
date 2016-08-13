@@ -1,17 +1,18 @@
-package eb.cyrien.CFABot;
+package eb.cyrien.MineCordBot.commands.Dcmd;
 
+import eb.cyrien.MineCordBot.Main;
 import net.dv8tion.jda.events.ReadyEvent;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.hooks.ListenerAdapter;
 
-public class CommandListener extends ListenerAdapter {
+public class DEventListener extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
-        boolean execHead = event.getMessage().getContent().startsWith(Main.botConfig.COMMAND_EXECUTOR);
+        boolean validChannel = event.getTextChannel().getId().equals(Main.botConfig.BINDED_CHANNEL);
         boolean notSelf = event.getMessage().getAuthor().getId() != event.getJDA().getSelfInfo().getId();
-        if(execHead && notSelf)
-            Main.handleCommand(Main.parser.parse(event.getMessage().getContent(), event));
+        if(validChannel && notSelf)
+            Main.relayToMinecraft(event);
     }
 
     @Override
