@@ -12,6 +12,8 @@ public class BotConfig {
     public static String COMMAND_EXECUTOR;
     public static String BOT_ID;
     public static ArrayList<String> WHITELIST;
+    public static String MESSAGE_PREFIX_DISCORD;
+    public static String MESSAGE_PREFIX_MINECRAFT;
 
     public BotConfig() {
         init();
@@ -24,6 +26,7 @@ public class BotConfig {
         COMMAND_EXECUTOR = Main.config.getConfig().getString("command_executor");
         WHITELIST = (ArrayList)Main.config.getConfig().getStringList("whitelist");
         BOT_ID = Main.config.getConfig().getString("bot_id");
+        MESSAGE_PREFIX_DISCORD = Main.config.getConfig().getString("message_prefix_discord");
     }
 
     public void reload() {

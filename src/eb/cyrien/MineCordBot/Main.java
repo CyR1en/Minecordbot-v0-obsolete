@@ -88,7 +88,7 @@ public class Main extends JavaPlugin {
             author = e.getAuthorName();
         String msg = e.getMessage().getContent();
         for(Player p : Bukkit.getServer().getOnlinePlayers())
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lDiscord&r~[&9&l" + author + "&r]: " + ChatColor.WHITE + msg ));
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', botConfig.MESSAGE_PREFIX_MINECRAFT + " ~ [&9&l" + author + "&r]: " + ChatColor.WHITE + msg ));
         log.info(author+ " > mc:" + msg );
     }
 
@@ -96,7 +96,7 @@ public class Main extends JavaPlugin {
         String author = e.getPlayer().getName();
         String msg = e.getMessage();
         //jda.getAccountManager().setNickname(jda.getTextChannelById(botConfig.BINDED_CHANNEL).getGuild(), "MC ~ " + author);
-        jda.getTextChannelById(botConfig.BINDED_CHANNEL).sendMessage("**Wobros ~ [" + author + "]:**  " + msg);
+        jda.getTextChannelById(botConfig.BINDED_CHANNEL).sendMessage("**" + botConfig.MESSAGE_PREFIX_DISCORD + " ~ " + "[" + author + "]:**  " + msg);
         log.info(author + " > discord: " + msg);
         //jda.getAccountManager().setNickname(jda.getTextChannelById(botConfig.BINDED_CHANNEL).getGuild(), jda.getSelfInfo().getUsername());
     }
