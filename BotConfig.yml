@@ -12,4 +12,12 @@ command_executor: "~!"
 
 # ID's of people who has permissions to do MineCordBot commands
 whitelist:
-  - 193970511615623168
+    - 2348249123049
+    - 3292391239123
+    - 2932193192392
+
+# message prefix that will be seen in Discord
+message_prefix_discord: Minecraft
+
+# message prefix that will be seen in minecraft
+message_prefix_minecraft: Discord    
