@@ -1,6 +1,7 @@
 # MineCordBot Bukkit
-Bridge Minecraft and Discord using MineCordBot.
-_Tested on CraftBukkit1.9.4_
+Bridge Minecraft and Discord using MineCordBot._Tested on CraftBukkit1.9.4_
+
+current version : **MineCordBot_Alpha0.1.10**
 
 ## Feature
 * Binds a channel to Minecraft. (This includes, death, join, disconnect, etc. events)
@@ -15,6 +16,7 @@ _Tested on CraftBukkit1.9.4_
 
 `command executor = "~!" | "~!" + command`
  * ~!help - lists all the command you can do for the bot in discord.
+ * ~!help <command> - better help for a specific command.
  * ~!setavatar <URL> - change the bot's avatar.
  * ~!setgame <game> - change what the bot's playing.
  * ~!ping - test if the bot is resposinve.
