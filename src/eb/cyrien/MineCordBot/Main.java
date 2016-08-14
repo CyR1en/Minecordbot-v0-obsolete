@@ -1,6 +1,7 @@
 package eb.cyrien.MineCordBot;
 
 import eb.cyrien.MineCordBot.commands.Dcmd.*;
+import eb.cyrien.MineCordBot.commands.Mcmd.Dcmd;
 import eb.cyrien.MineCordBot.commands.Mcmd.Dme;
 import eb.cyrien.MineCordBot.commands.Mcmd.MEventListener;
 import eb.cyrien.MineCordBot.commands.Mcmd.MReload;
@@ -39,7 +40,8 @@ public class Main extends JavaPlugin {
         config = new PluginFile(this, "BotConfig", true);
         botConfig = new BotConfig();
         this.getCommand("dme").setExecutor(new Dme(this));
-        this.getCommand("cfabot").setExecutor(new MReload(this));
+        this.getCommand("minecordbot").setExecutor(new MReload(this));
+        this.getCommand("dcmd").setExecutor(new Dcmd(this));
         getServer().getPluginManager().registerEvents(new MEventListener(), this);
 
         //discord side initialization
