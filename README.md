@@ -1,5 +1,5 @@
 # MineCordBot Bukkit
-Bridge Minecraft and Discord using MineCordBot._Tested on CraftBukkit1.9.4_
+Bridge Minecraft and Discord using MineCordBot ._Tested on CraftBukkit1.9.4 and CraftBukkit1.10_
 
 current version : **MineCordBot_Alpha0.1.10**
 
