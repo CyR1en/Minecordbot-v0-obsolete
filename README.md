@@ -43,7 +43,7 @@ current version : **MineCordBot_Alpha0.1.10**
  * Now add your bot to your Discord Server. Remeber to Replace "[Place your bot's Client ID]" with your bot's client ID
  `https://discordapp.com/oauth2/authorize?client_id=[Place your bot's Client ID]&scope=bot&permissions=0`
 
-**Install The plugin to your Minecraft Server**
+**Install the plugin to your Minecraft Server**
  * Download MineCordBot.jar here https://dev.bukkit.org/bukkit-plugins/minecordbot-bukkit/
  * Put the jar file to your plugin folder in your minecraft server.
  * Start your server.
@@ -57,9 +57,9 @@ This is a project for my Minecraft Server. I use it so that players could intera
 with everyone in-game or not.
 
 The plugin is currently in a very early stage. So please don't hate when you see some bugs.
-Also I'd say that i'm not the best at programming, since I don't have enough experience.(I'm just 18 ;-;)
+Also I'd say that i'm not the best at programming, since I don't have enough experience, and I've only studied computer science for a year.(I'm just 18 ;-;)
 
-Bot is also written in Java for easier Minecraft support.
+MineCordBot is also written in Java for easier CraftBukkit support.
 
 Also I've only tested this on CrafBukkit1.9.4. But I will soon be testing newer version of CraftBukkit, even old versions.
 Maybe add support to other versions of Minecraft servers, and other plugins like Multiverse, etc.
