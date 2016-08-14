@@ -66,7 +66,7 @@ Maybe add support to other versions of Minecraft servers, and other plugins like
 
 ## Dependencies
   * JDA - [https://github.com/DV8FromTheWorld/JDA]
-  * CraftBukkit1.x
+  * CraftBukkit [https://www.spigotmc.org/wiki/buildtools]
 
 ## To see the bot in Action
   * Join our Discord server: https://discord.gg/Dv7vbzJ
