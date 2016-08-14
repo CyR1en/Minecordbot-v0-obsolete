@@ -27,6 +27,7 @@ public class BotConfig {
         WHITELIST = (ArrayList)Main.config.getConfig().getStringList("whitelist");
         BOT_ID = Main.config.getConfig().getString("bot_id");
         MESSAGE_PREFIX_DISCORD = Main.config.getConfig().getString("message_prefix_discord");
+        MESSAGE_PREFIX_MINECRAFT = Main.config.getConfig().getString("message_prefix_minecraft");
     }
 
     public void reload() {
