@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 0.1.11 (2016-8-13)
+
+**Feature**
+
+  * Added Minecraft command to do Discord command. (command-ception).
+  * Prefix that will be seen in Minecraft can now how text formats. i.e &6&l&nTest.
+  * Tested on CraftBukkit1.10 and Spigot1.10, and it seems to work.
+  
+**Bug fix**
+
+  * Fixed prefix problem that makes all message from discord to have a prefix "null".
+
 ## 0.1.10 (2016-8-12)
 
 **Feature**
