@@ -3,7 +3,7 @@ Bridge Minecraft and Discord using MineCordBot .
 
 _Tested on CraftBukkit1.9.4, CraftBukkit1.10, and Spigot1.10_
 
-current version : **MineCordBot_Alpha0.1.10**
+current version : **MineCordBot_Alpha0.1.11**
 
 ## Feature
 * Binds a channel to Minecraft. (This includes, death, join, disconnect, etc. events)
@@ -28,13 +28,15 @@ current version : **MineCordBot_Alpha0.1.10**
  * _More commands to come_.
 
 **Minecraft Commands**
- * /dme - it's just like /me but it's connected to discord.
- * /reload - reloads botConfig.yml.
+ * /dme [description] - it's just like /me but it's connected to discord.
+ * /minecordbot reload - reloads botConfig.yml.
+ * /dcmd [discord command] - Do discord command from Minecraft
  * _More commands to come_.
 
 ## Permission nodes
  * minecordbot.dme    | command: /dme
  * minecordbot.reload | command: /minecordbot reload
+ * minecordbot.dcmd   | command: /dcmd
 
 ## Installation
 **First of all** - Make a discord Bot
