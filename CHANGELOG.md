@@ -5,7 +5,7 @@
 **Feature**
 
   * Added Minecraft command to do Discord command. (command-ception).
-  * Prefix that will be seen in Minecraft can now how text formats. i.e &6&l&nTest.
+  * Prefix that will be seen in Minecraft can now have bukkit conventional text formats. i.e &6&l&nTest.
   * Tested on CraftBukkit1.10 and Spigot1.10, and it seems to work.
   
 **Bug fix**
