@@ -24,7 +24,6 @@ public class Ping extends Command {
         e.getTextChannel().sendMessage("PONG!!!");
     }
 
-
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
         return;
