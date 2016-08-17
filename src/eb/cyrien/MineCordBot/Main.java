@@ -64,6 +64,9 @@ public class Main extends JavaPlugin {
         commands.put("syntest", new SynTest());
         commands.put("reload", new DReload());
         commands.put("help", new Help());
+        commands.put("setusername", new SetUsername());
+        commands.put("setnick", new SetNick());
+        commands.put("setstreaming", new SetStreaming());
     }
 
     @Override
@@ -90,8 +93,8 @@ public class Main extends JavaPlugin {
             author = e.getAuthorName();
         String msg = e.getMessage().getContent();
         for(Player p : Bukkit.getServer().getOnlinePlayers())
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', botConfig.MESSAGE_PREFIX_MINECRAFT + " ~ [&9&l" + author + "&r]: " + ChatColor.WHITE + msg ));
-        log.info(author+ " > mc:" + msg );
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', botConfig.MESSAGE_PREFIX_MINECRAFT + "&r"+ " ~ [&9&l" + author + "&r]: " + ChatColor.WHITE + msg ));
+        log.info(author+ " > mc: " + msg );
     }
 
     public static void relayToDiscord(AsyncPlayerChatEvent e) {
