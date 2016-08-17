@@ -31,8 +31,8 @@ public class BotConfig {
     }
 
     public void reload() {
-        Main.config.reload();
         init();
+        Main.config.reload();
     }
 
 }
