@@ -10,7 +10,7 @@
   * Better help command. You can now specify what command do you need help with.
 
 **Code**
-
+  * Added accessors and mutators for help command.
   * New instances for command to support the updated version of the help command.
   
 **Bug fix**
