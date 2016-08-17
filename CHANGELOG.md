@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## 0.2.0 (2016-8-16)
+
+**Feature**
+
+  * Added SetNick command.
+  * Added SetStreaming command.
+  * Added SetUsername command.
+  * Better help command. You can now specify what command do you need help with.
+
+**Code**
+
+  * New instances for command to support the updated version of the help command.
+  
+**Bug fix**
+  
+  * Fixed Discord prefix problem, where format codes gets carried over to a different section of the prefix.
+
+
 ## 0.1.11 (2016-8-13)
 
 **Feature**
