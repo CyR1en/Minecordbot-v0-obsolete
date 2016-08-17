@@ -2,6 +2,12 @@
 
 ## 0.2.0 (2016-8-16)
 
+**Bug fix**
+  
+  * Hopefully fixed bot config reload.
+
+## 0.2.0 (2016-8-16)
+
 **Feature**
 
   * Added SetNick command.
@@ -16,7 +22,6 @@
 **Bug fix**
   
   * Fixed Discord prefix problem, where format codes gets carried over to a different section of the prefix.
-
 
 ## 0.1.11 (2016-8-13)
 
