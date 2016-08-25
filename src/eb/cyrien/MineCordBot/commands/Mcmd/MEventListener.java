@@ -30,6 +30,6 @@ public class MEventListener implements Listener {
 
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event) {
-        Main.relayToDiscord(event);
+        Main.messenger.relayToDiscord(event);
     }
 }
