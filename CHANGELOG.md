@@ -2,56 +2,35 @@
 
 ## 0.2.1 (2016-8-24)
 
-<<<<<<< HEAD
   **Feature**
-=======
-**Feature**
->>>>>>> origin/master
 
   * Even better help command.
   * You can now see the bot typing.
 
-<<<<<<< HEAD
   **Code**
-=======
-**Code**
->>>>>>> origin/master
 
   * Added Messenger class
   * Refactored all usage info for every command.
 
-<<<<<<< HEAD
   **Bug fix**
-=======
-**Bug fix**
->>>>>>> origin/master
   
   * Minecraft /dme permission fix. 
 
 ## 0.2.0.1 (2016-8-16)
 
-<<<<<<< HEAD
   **Bug fix**
-=======
-**Bug fix**
->>>>>>> origin/master
   
   * Hopefully fixed bot config reload.
 
 ## 0.2.0 (2016-8-16)
 
-<<<<<<< HEAD
   **Feature**
-=======
-**Feature**
->>>>>>> origin/master
 
   * Added SetNick command.
   * Added SetStreaming command.
   * Added SetUsername command.
   * Better help command. You can now specify what command do you need help with.
 
-<<<<<<< HEAD
   **Code**
 
   * New instances for command to support the updated version of the help command.
@@ -61,16 +40,6 @@
   * Fixed Discord prefix problem, where format codes gets carried over to a different section of the prefix.
 
 
-=======
-**Code**
-  * Added accessors and mutators for help command.
-  * New instances for command to support the updated version of the help command.
-  
-**Bug fix**
-  
-  * Fixed Discord prefix problem, where format codes gets carried over to a different section of the prefix.
-
->>>>>>> origin/master
 ## 0.1.11 (2016-8-13)
 
   **Feature**
