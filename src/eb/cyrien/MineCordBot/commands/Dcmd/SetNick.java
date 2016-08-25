@@ -6,7 +6,7 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 public class SetNick extends Command {
 
-    private final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "setnick";
+    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "setnick";
     private final String DESCRIPTION = "set the user nickname of the bot.";
 
     public SetNick() {
@@ -24,6 +24,7 @@ public class SetNick extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
+        e.getTextChannel().sendTyping();
         e.getJDA().getAccountManager().setNickname(e.getJDA().getTextChannelById
                 (Main.botConfig.BINDED_CHANNEL).getGuild(), Main.concatenateArgs(0, args));
         e.getJDA().getAccountManager().update();

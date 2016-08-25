@@ -6,7 +6,7 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 public class SetStreaming extends Command{
 
-    private final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "setstreaming";
+    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "setstreaming";
     private final String DESCRIPTION = "set what the bot is streaming";
 
     public SetStreaming() {
@@ -26,6 +26,7 @@ public class SetStreaming extends Command{
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
+        e.getTextChannel().sendTyping();
         e.getJDA().getAccountManager().setStreaming(args[0], args[1]);
         e.getJDA().getAccountManager().update();
     }

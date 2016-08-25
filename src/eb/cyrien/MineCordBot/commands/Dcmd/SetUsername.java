@@ -6,8 +6,8 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 public class SetUsername extends Command {
 
-    private final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "setusername";
-    private final String DESCRIPTION = "set the user name of the bot. Limited to a certain amount of times";
+    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "setusername";
+    private final String DESCRIPTION = "Set the user name of the bot. Limited to a certain amount of times";
 
     public SetUsername() {
         setUsage(HELP);
@@ -24,6 +24,7 @@ public class SetUsername extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
+        e.getTextChannel().sendTyping();
         e.getJDA().getAccountManager().setUsername(Main.concatenateArgs(0, args));
         e.getJDA().getAccountManager().update();
     }

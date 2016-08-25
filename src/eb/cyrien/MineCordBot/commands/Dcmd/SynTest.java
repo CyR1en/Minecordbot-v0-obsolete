@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class SynTest extends Command{
     public  static final String CODE_BLOCK = "```";
 
-    private final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "syntest <test string>";
+    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "syntest <test string>";
     private final String DESCRIPTION = "Test different Markdown Syntax Highlighting";
 
     private ArrayList<String> syns;
@@ -70,11 +70,12 @@ public class SynTest extends Command{
         String out = "";
         String msg = Main.concatenateArgs(0, args);
         for(String s : syns) {
+            e.getTextChannel().sendTyping();
             out += CODE_BLOCK + s + "\n" + msg + "\n" + CODE_BLOCK + "\n - " + s;
             e.getTextChannel().sendMessage(out);
             out = "";
             try {
-                TimeUnit.MILLISECONDS.sleep(800);
+                TimeUnit.MILLISECONDS.sleep(1000);
             } catch (InterruptedException e1) {
                 e1.printStackTrace();
             }

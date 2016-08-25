@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 public class ListPlayer extends Command {
 
-    private final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "ls";
+    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "ls";
     private final String DESCRIPTION = "List all players currently online in your minecraft server";
 
     public ListPlayer() {
@@ -24,6 +24,7 @@ public class ListPlayer extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
+        e.getTextChannel().sendTyping();
         String blockFix = "```";
         TextChannel tc = e.getTextChannel();
         tc.sendMessage("Online Players in " + Bukkit.getServer().getName());

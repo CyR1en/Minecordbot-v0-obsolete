@@ -13,7 +13,7 @@ import java.net.URLConnection;
 
 public class SetAvatar extends Command {
 
-    private final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "SetAvatar <Image URL>";
+    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "SetAvatar <Image URL>";
     private final String DESCRIPTION = "Change the bot's Avatar";
 
     public SetAvatar() {
@@ -23,6 +23,7 @@ public class SetAvatar extends Command {
 
     @Override
     public boolean called(String[] args, MessageReceivedEvent e) {
+        e.getTextChannel().sendTyping();
         String authID = e.getAuthor().getId();
         if (!hasPermission(authID))
             if (!authID.trim().toLowerCase().equalsIgnoreCase(Main.botConfig.OWNER_ID.trim().toLowerCase()))
@@ -50,6 +51,7 @@ public class SetAvatar extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
+        e.getTextChannel().sendTyping();
         e.getTextChannel().sendMessage("Setting Avatar");
     }
 

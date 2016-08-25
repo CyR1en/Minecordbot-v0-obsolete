@@ -6,7 +6,7 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 public class SetGame extends Command {
 
-    private final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "setgame <text>";
+    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "setgame <text>";
     private final String DESCRIPTION = "Set what the bot is playing";
 
     public SetGame() {
@@ -16,6 +16,7 @@ public class SetGame extends Command {
 
     @Override
     public boolean called(String[] args, MessageReceivedEvent e) {
+        e.getTextChannel().sendTyping();
         String authID = e.getAuthor().getId();
         if(!hasPermission(authID))
             if(!authID.trim().equalsIgnoreCase(Main.botConfig.OWNER_ID.trim()))

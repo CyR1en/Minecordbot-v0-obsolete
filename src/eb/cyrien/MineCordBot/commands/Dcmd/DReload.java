@@ -6,8 +6,8 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 public class DReload extends Command {
 
-    private final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "reload";
-    private final String DESCRIPTION = " Reload BotCOnfig.yml";
+    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "reload";
+    private final String DESCRIPTION = " Reload BotConfig.yml";
 
     public DReload () {
         setUsage(HELP);
@@ -24,6 +24,7 @@ public class DReload extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
+        e.getTextChannel().sendTyping();
         Main.botConfig.reload();
     }
 

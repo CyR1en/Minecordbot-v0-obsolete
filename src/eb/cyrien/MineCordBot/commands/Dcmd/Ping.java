@@ -6,7 +6,7 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 public class Ping extends Command {
 
-    private final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "ping";
+    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "ping";
     private final String DESCRIPTION = "Test bot's responsiveness";
 
     public Ping() {
@@ -21,6 +21,7 @@ public class Ping extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
+        e.getTextChannel().sendTyping();
         e.getTextChannel().sendMessage("PONG!!!");
     }
 
