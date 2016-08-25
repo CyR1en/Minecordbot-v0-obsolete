@@ -5,16 +5,12 @@ import eb.cyrien.MineCordBot.commands.Mcmd.Dcmd;
 import eb.cyrien.MineCordBot.commands.Mcmd.Dme;
 import eb.cyrien.MineCordBot.commands.Mcmd.MEventListener;
 import eb.cyrien.MineCordBot.commands.Mcmd.MReload;
+import eb.cyrien.MineCordBot.commands.entity.Messenger;
 import eb.cyrien.MineCordBot.configuration.PluginFile;
 import eb.cyrien.MineCordBot.utils.BotConfig;
 import eb.cyrien.MineCordBot.utils.CommandParser;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.JDABuilder;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import javax.security.auth.login.LoginException;
@@ -32,9 +28,15 @@ public class Main extends JavaPlugin {
     public static BotConfig botConfig;
 
     public static Logger log;
+    public static Messenger messenger;
 
     @Override
     public void onEnable() {
+        msInit();
+        dsInit();
+    }
+
+    public void msInit() {
         //minecraft side initialization
         log = getLogger();
         config = new PluginFile(this, "BotConfig", true);
@@ -43,7 +45,9 @@ public class Main extends JavaPlugin {
         this.getCommand("minecordbot").setExecutor(new MReload(this));
         this.getCommand("dcmd").setExecutor(new Dcmd(this));
         getServer().getPluginManager().registerEvents(new MEventListener(), this);
+    }
 
+    public void dsInit() {
         //discord side initialization
         try {
             jda = new JDABuilder()
@@ -51,6 +55,7 @@ public class Main extends JavaPlugin {
                     .addListener(new CommandListener())
                     .setBotToken(botConfig.BOT_TOKEN).buildBlocking();
             jda.setAutoReconnect(true);
+            messenger = new Messenger(jda);
         } catch (LoginException e) {
             e.printStackTrace();
             System.err.println("Could not log in");
@@ -85,25 +90,6 @@ public class Main extends JavaPlugin {
             } else
                 commands.get(cmd.invoke).executed(safe, cmd.event);
         }
-    }
-
-    public static void relayToMinecraft(MessageReceivedEvent e) {
-        String author = e.getAuthorNick();
-        if(author == null)
-            author = e.getAuthorName();
-        String msg = e.getMessage().getContent();
-        for(Player p : Bukkit.getServer().getOnlinePlayers())
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', botConfig.MESSAGE_PREFIX_MINECRAFT + "&r"+ " ~ [&9&l" + author + "&r]: " + ChatColor.WHITE + msg ));
-        log.info(author+ " > mc: " + msg );
-    }
-
-    public static void relayToDiscord(AsyncPlayerChatEvent e) {
-        String author = e.getPlayer().getName();
-        String msg = e.getMessage();
-        //jda.getAccountManager().setNickname(jda.getTextChannelById(botConfig.BINDED_CHANNEL).getGuild(), "MC ~ " + author);
-        jda.getTextChannelById(botConfig.BINDED_CHANNEL).sendMessage("**" + botConfig.MESSAGE_PREFIX_DISCORD + " ~ " + "[" + author + "]:**  " + msg);
-        log.info(author + " > discord: " + msg);
-        //jda.getAccountManager().setNickname(jda.getTextChannelById(botConfig.BINDED_CHANNEL).getGuild(), jda.getSelfInfo().getUsername());
     }
 
     public static String concatenateArgs(int startIndex,String[] args) {
