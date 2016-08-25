@@ -12,7 +12,7 @@ public class DEventListener extends ListenerAdapter {
         boolean validChannel = event.getTextChannel().getId().equals(Main.botConfig.BINDED_CHANNEL);
         boolean notSelf = event.getMessage().getAuthor().getId() != event.getJDA().getSelfInfo().getId();
         if(validChannel && notSelf)
-            Main.relayToMinecraft(event);
+            Main.messenger.relayToMinecraft(event);
     }
 
     @Override
