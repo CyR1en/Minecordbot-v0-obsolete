@@ -39,7 +39,7 @@ public abstract class Command {
     public String getUsage() {
         return usage;
     }
-    public String getDefinition() {
+    public String getDescription() {
         return definition;
     }
 
