@@ -5,16 +5,18 @@ import eb.cyrien.MineCordBot.Main;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Help extends Command {
 
-    private final String HELP = "USAGE: " + Main.botConfig.COMMAND_EXECUTOR + "help <command>";
+    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "help <command>";
     private final String DESCRIPTION = "List all commands.";
 
     public Help() {
         setUsage(HELP);
         setDescription(DESCRIPTION);
     }
+
     @Override
     public boolean called(String[] args, MessageReceivedEvent e) {
         return true;
@@ -22,19 +24,21 @@ public class Help extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
+        e.getTextChannel().sendTyping();
+        Map<String, Command> map = new TreeMap<>(Main.commands);
         if(args.length == 1) {
-            if(!Main.commands.containsKey(args[0]))
+            if(!map.containsKey(args[0]))
                 e.getTextChannel().sendMessage("`There's no such " + args[0] + " command.`");
             else {
-                Command cmd = Main.commands.get(args[0]);
-                e.getTextChannel().sendMessage("```\n" + cmd.getUsage() +
-                        "\nDescription: " + cmd.getDefinition() + "\n```");
+                Command cmd = map.get(args[0]);
+                e.getTextChannel().sendMessage("_help for " + args[0] + "_\n" + "**Usage: **" + "``" + cmd.getUsage() + "``" +
+                        "\n**Description: **" + "``" + cmd.getDescription() + "``");
             }
         } else if (args.length == 0 || args == null) {
             String cmdExec = Main.botConfig.COMMAND_EXECUTOR;
             String out = "```\n";
-            for (Map.Entry<String, Command> entry : Main.commands.entrySet())
-                out += cmdExec + entry.getKey() + "\n";
+            for (Map.Entry<String, Command> entry : map.entrySet())
+                out += cmdExec + entry.getKey() + " - " + entry.getValue().getDescription() + "\n";
             out += "```";
             e.getTextChannel().sendMessage(out);
         }
