@@ -18,9 +18,12 @@ public class Dme implements CommandExecutor {
     private boolean preCommand(CommandSender commandSender, Command command, String[] args) {
         if(!command.getName().equalsIgnoreCase("dme"))
             return usage(commandSender);
-        if(!commandSender.hasPermission("minecordbot.dme"))
+        if(!commandSender.hasPermission("minecordbot.dme")) {
+            commandSender.sendMessage(ChatColor.RED + "You don't have permission to use /dme");
+            return false;
+        }
         if(!(commandSender instanceof Player)) {
-            commandSender.sendMessage("Only players can do discord /me");
+            commandSender.sendMessage("Only players can do discord me or /dme");
             return false;
         }
         return true;
