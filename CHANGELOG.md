@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## 0.2.1 (2016-8-24)
+
+**Feature**
+
+  * Even better help command.
+  * You can now see the bot typing.
+
+**Code**
+
+  * Added Messenger class
+  * Refactored all usage info for every command.
+
+**Bug fix**
+  
+  * Minecraft /dme permission fix. 
+
 ## 0.2.0.1 (2016-8-16)
 
 **Bug fix**
