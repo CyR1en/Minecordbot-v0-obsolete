@@ -1,9 +1,9 @@
-# MineCordBot Bukkit
+# MineCordBot
 Bridge Minecraft and Discord using MineCordBot .
 
 _Tested on CraftBukkit1.9.4, CraftBukkit1.10, and Spigot1.10_
 
-current version : **MineCordBot_Alpha0.1.11**
+current version : **MineCordBot_Beta0.2.1**
 
 ## Feature
 * Binds a channel to Minecraft. (This includes, death, join, disconnect, etc. events)
@@ -21,6 +21,9 @@ current version : **MineCordBot_Alpha0.1.11**
  * ~!help [command] - better help for a specific command.
  * ~!setavatar [URL] - change the bot's avatar.
  * ~!setgame [game] - change what the bot's playing.
+ * ~!setusername [username] - change username of the bot. _Important note: Username changes are limited to 2 an hour._
+ * ~!setnick [nickname] - set the bot's nickname.
+ * ~!setstreaming [title(can be anything)] [stream link - only streaming links] - let the bot stream something for the server.
  * ~!ping - test if the bot is resposinve.
  * ~!reload - reload botConfig.yml.
  * ~!ls - lists online players in the server.
