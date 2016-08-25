@@ -5,7 +5,7 @@ import eb.cyrien.MineCordBot.commands.Mcmd.Dcmd;
 import eb.cyrien.MineCordBot.commands.Mcmd.Dme;
 import eb.cyrien.MineCordBot.commands.Mcmd.MEventListener;
 import eb.cyrien.MineCordBot.commands.Mcmd.MReload;
-import eb.cyrien.MineCordBot.commands.entity.Messenger;
+import eb.cyrien.MineCordBot.entity.Messenger;
 import eb.cyrien.MineCordBot.configuration.PluginFile;
 import eb.cyrien.MineCordBot.utils.BotConfig;
 import eb.cyrien.MineCordBot.utils.CommandParser;
