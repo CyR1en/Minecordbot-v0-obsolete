@@ -3,7 +3,6 @@ package eb.cyrien.MineCordBot;
 import eb.cyrien.MineCordBot.commands.Dcmd.*;
 import eb.cyrien.MineCordBot.commands.Mcmd.Dcmd;
 import eb.cyrien.MineCordBot.commands.Mcmd.Dme;
-import eb.cyrien.MineCordBot.commands.Mcmd.MEventListener;
 import eb.cyrien.MineCordBot.commands.Mcmd.MReload;
 import eb.cyrien.MineCordBot.entity.Messenger;
 import eb.cyrien.MineCordBot.configuration.PluginFile;
@@ -14,6 +13,7 @@ import net.dv8tion.jda.JDABuilder;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import javax.security.auth.login.LoginException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
@@ -28,15 +28,13 @@ public class Main extends JavaPlugin {
     public static BotConfig botConfig;
 
     public static Logger log;
-    public static Messenger messenger;
 
     @Override
     public void onEnable() {
-        msInit();
-        dsInit();
+        init();
     }
 
-    public void msInit() {
+    public void init() {
         //minecraft side initialization
         log = getLogger();
         config = new PluginFile(this, "BotConfig", true);
@@ -44,18 +42,15 @@ public class Main extends JavaPlugin {
         this.getCommand("dme").setExecutor(new Dme(this));
         this.getCommand("minecordbot").setExecutor(new MReload(this));
         this.getCommand("dcmd").setExecutor(new Dcmd(this));
-        getServer().getPluginManager().registerEvents(new MEventListener(), this);
-    }
+        getServer().getPluginManager().registerEvents(new Messenger(), this);
 
-    public void dsInit() {
         //discord side initialization
         try {
             jda = new JDABuilder()
-                    .addListener(new DEventListener())
+                    .addListener(new Messenger())
                     .addListener(new CommandListener())
                     .setBotToken(botConfig.BOT_TOKEN).buildBlocking();
             jda.setAutoReconnect(true);
-            messenger = new Messenger(jda);
         } catch (LoginException e) {
             e.printStackTrace();
             System.err.println("Could not log in");
@@ -72,15 +67,16 @@ public class Main extends JavaPlugin {
         commands.put("setusername", new SetUsername());
         commands.put("setnick", new SetNick());
         commands.put("setstreaming", new SetStreaming());
+        commands.put("mcmd", new Mcmd());
     }
 
     @Override
     public void onDisable() {
-        jda.shutdown();
+        if(jda != null)
+            jda.shutdown();
     }
 
     public static void handleCommand(CommandParser.CommandContainer cmd) {
-        System.out.println(cmd.invoke);
         if (commands.containsKey(cmd.invoke)) {
             boolean safe = commands.get(cmd.invoke).called(cmd.args, cmd.event);
             System.out.println(safe);
@@ -96,6 +92,7 @@ public class Main extends JavaPlugin {
         String concatenatedString = "";
         for(int i = startIndex; i < args.length; i++)
             concatenatedString += " " + args[i];
+        Arrays.asList(new String[1]).stream().reduce("", (a, s) -> a += " " + s);
         return concatenatedString;
     }
 }
