@@ -6,7 +6,7 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 public class SetUsername extends Command {
 
-    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "setusername";
+    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "setusername <username>";
     private final String DESCRIPTION = "Set the user name of the bot. Limited to a certain amount of times";
 
     public SetUsername() {

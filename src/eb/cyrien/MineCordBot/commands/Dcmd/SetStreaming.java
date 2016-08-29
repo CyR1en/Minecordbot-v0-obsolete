@@ -6,7 +6,7 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 public class SetStreaming extends Command{
 
-    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "setstreaming";
+    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "setstreaming <title> <streaming link>";
     private final String DESCRIPTION = "set what the bot is streaming";
 
     public SetStreaming() {

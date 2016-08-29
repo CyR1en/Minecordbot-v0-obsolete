@@ -31,8 +31,8 @@ public class Help extends Command {
                 e.getTextChannel().sendMessage("`There's no such " + args[0] + " command.`");
             else {
                 Command cmd = map.get(args[0]);
-                e.getTextChannel().sendMessage("_help for " + args[0] + "_\n" + "**Usage: **" + "``" + cmd.getUsage() + "``" +
-                        "\n**Description: **" + "``" + cmd.getDescription() + "``");
+                e.getTextChannel().sendMessage("_help for " + args[0] + "_\n" + "**Usage: **" + "``" + cmd.getUsage()
+                        + "``" + "\n**Description: **" + "``" + cmd.getDescription() + "``");
             }
         } else if (args.length == 0 || args == null) {
             String cmdExec = Main.botConfig.COMMAND_EXECUTOR;

@@ -6,7 +6,7 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 public class SetNick extends Command {
 
-    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "setnick";
+    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "setnick <nickname>";
     private final String DESCRIPTION = "set the user nickname of the bot.";
 
     public SetNick() {
