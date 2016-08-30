@@ -16,7 +16,6 @@ current version : **MineCordBot_Beta0.2.1**
 
 `Usage: command_executor + command.`
 
-`command executor = "~!" | "~!" + command`
  * ~!help - lists all the command you can do for the bot in discord.
  * ~!help [command] - better help for a specific command.
  * ~!setavatar [URL] - change the bot's avatar.
@@ -28,6 +27,7 @@ current version : **MineCordBot_Beta0.2.1**
  * ~!reload - reload botConfig.yml.
  * ~!ls - lists online players in the server.
  * ~!syntest [text] - Test different syntax highlighting for a specific text.
+ * ~!mcmd [command] - Do a minecraft command from discord.
  * _More commands to come_.
 
 **Minecraft Commands**
