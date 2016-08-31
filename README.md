@@ -8,7 +8,7 @@ current version : **MineCordBot_Beta0.2.2**
 ## Feature
 * Binds a channel to Minecraft. (This includes, death, join, disconnect, etc. events)
 * Custom commands that applies to both Minecraft and Discord server.
-* Do Discord bot commands from minecraft. (Still working on a feature to do it vice versa).
+* Do Discord bot commands from minecraft.
 * Set your desired Discord command executor (Prefix to determine if a text is a command. i.e "~!", ~!sampleCommand).
 
 ## Commands
