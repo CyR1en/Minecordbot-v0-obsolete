@@ -28,6 +28,7 @@ current version : **MineCordBot_Beta0.2.2**
  * ~!ls - lists online players in the server.
  * ~!syntest [text] - Test different syntax highlighting for a specific text.
  * ~!mcmd [command] - Do a minecraft command from discord.
+ * ~!info - Know more information about the bot.
  * _More commands to come_.
 
 **Minecraft Commands**
