@@ -30,9 +30,6 @@ public class Mcmd extends Command {
 
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
-        if (success)
-            e.getTextChannel().sendMessage(":white_check_mark:");
-        else
-            e.getTextChannel().sendMessage(noPermMessage());
+        e.getTextChannel().sendMessage(noPermMessage());
     }
 }
