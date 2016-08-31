@@ -44,7 +44,7 @@ public class Messenger extends ListenerAdapter implements Listener {
     public void onMessageReceived(MessageReceivedEvent event) {
         boolean validChannel = event.getTextChannel().getId().equals(Main.botConfig.BINDED_CHANNEL);
         boolean notSelf = event.getMessage().getAuthor().getId() != event.getJDA().getSelfInfo().getId();
-        boolean notCommand = !event.getMessage().toString().startsWith(Main.botConfig.COMMAND_EXECUTOR);
+        boolean notCommand = event.getMessage().toString().startsWith(Main.botConfig.COMMAND_EXECUTOR);
         if(validChannel && notSelf && notCommand)
             relayToMinecraft(event);
     }
