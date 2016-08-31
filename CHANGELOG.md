@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## 0.2.2 (2016-8-24)
+
+**Feature**
+
+  * Now do Minecraft commands from discord.
+  * New info command for the bot.
+
+**Code**
+
+  * Better Messenger class.
+  * Moved Minecraft listener and Discord listener to messenger class.
+
+**Bug fix**
+  
+  * fixed commands having less information with their usage.
+
 ## 0.2.1 (2016-8-24)
 
 **Feature**
