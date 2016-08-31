@@ -4,14 +4,12 @@ import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.utils.AvatarUtil;
-import org.bukkit.event.server.RemoteServerCommandEvent;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.rmi.server.RemoteServer;
 
 public class SetAvatar extends Command {
 
