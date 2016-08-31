@@ -29,12 +29,15 @@ public class Main extends JavaPlugin {
 
     public static Logger log;
 
+    private static long startTime;
+
     @Override
     public void onEnable() {
         init();
     }
 
     public void init() {
+        startTime = System.currentTimeMillis();
         //minecraft side initialization
         log = getLogger();
         config = new PluginFile(this, "BotConfig", true);
@@ -68,6 +71,7 @@ public class Main extends JavaPlugin {
         commands.put("setnick", new SetNick());
         commands.put("setstreaming", new SetStreaming());
         commands.put("mcmd", new Mcmd());
+        commands.put("info", new Info());
     }
 
     @Override
@@ -79,7 +83,6 @@ public class Main extends JavaPlugin {
     public static void handleCommand(CommandParser.CommandContainer cmd) {
         if (commands.containsKey(cmd.invoke)) {
             boolean safe = commands.get(cmd.invoke).called(cmd.args, cmd.event);
-            System.out.println(safe);
             if(safe) {
                 commands.get(cmd.invoke).action(cmd.args, cmd.event);
                 commands.get(cmd.invoke).executed(safe, cmd.event);
@@ -92,7 +95,13 @@ public class Main extends JavaPlugin {
         String concatenatedString = "";
         for(int i = startIndex; i < args.length; i++)
             concatenatedString += " " + args[i];
-        Arrays.asList(new String[1]).stream().reduce("", (a, s) -> a += " " + s);
+        concatenatedString.trim();
         return concatenatedString;
+    }
+
+    public static String getUptime() {
+        long currTime = System.currentTimeMillis();
+        long diff = currTime - startTime;
+        return (int)(diff / 86400000L) + "d " + (int)(diff / 3600000L % 24L) + "h " + (int)(diff / 60000L % 60L) + "m " + (int)(diff / 1000L % 60L) + "s";
     }
 }
