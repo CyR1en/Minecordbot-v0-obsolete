@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 0.2.3 (2016-8-24)
+
+**Feature**
+
+  * It can do simple math for you now.
+
+**Code**
+
+  * Moved some classes to utils
+
+**Bug fix**
+  
+  * Fixed messenger that caused it to stop relaying messages from Discord to Minecraft.
+
 ## 0.2.2 (2016-8-24)
 
 **Feature**
