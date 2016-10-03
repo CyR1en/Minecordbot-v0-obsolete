@@ -68,7 +68,7 @@ with everyone in-game or not.
 The plugin is currently in a very early stage. So please don't hate when you see some bugs.
 Also I'd say that i'm not the best at programming, since I don't have enough experience, and I've only studied computer science for a year.(I'm just 18 ;-;)
 
-MineCordBot is also written in Java for easier CraftBukkit support.
+MineCordBot is also written in Java for easier Minecraft support.
 
 Also I've only tested this on CrafBukkit1.9.4. But I will soon be testing newer version of CraftBukkit, even old versions.
 Maybe add support to other versions of Minecraft servers, and other plugins like Multiverse, etc.
