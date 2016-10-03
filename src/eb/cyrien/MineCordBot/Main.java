@@ -4,16 +4,17 @@ import eb.cyrien.MineCordBot.commands.Dcmd.*;
 import eb.cyrien.MineCordBot.commands.Mcmd.Dcmd;
 import eb.cyrien.MineCordBot.commands.Mcmd.Dme;
 import eb.cyrien.MineCordBot.commands.Mcmd.MReload;
+import eb.cyrien.MineCordBot.entity.BasicMathSolver;
 import eb.cyrien.MineCordBot.entity.Messenger;
 import eb.cyrien.MineCordBot.configuration.PluginFile;
 import eb.cyrien.MineCordBot.utils.BotConfig;
+import eb.cyrien.MineCordBot.utils.CommandListener;
 import eb.cyrien.MineCordBot.utils.CommandParser;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.JDABuilder;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import javax.security.auth.login.LoginException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
@@ -50,6 +51,7 @@ public class Main extends JavaPlugin {
         //discord side initialization
         try {
             jda = new JDABuilder()
+                    .addListener(new BasicMathSolver())
                     .addListener(new Messenger())
                     .addListener(new CommandListener())
                     .setBotToken(botConfig.BOT_TOKEN).buildBlocking();
