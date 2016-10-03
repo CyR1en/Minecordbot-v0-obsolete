@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 0.2.3 (2016-8-24)
+## 0.2.3 (2016-10-2)
 
 **Feature**
 
@@ -14,7 +14,7 @@
   
   * Fixed messenger that caused it to stop relaying messages from Discord to Minecraft.
 
-## 0.2.2 (2016-8-24)
+## 0.2.2 (2016-9-4)
 
 **Feature**
 
