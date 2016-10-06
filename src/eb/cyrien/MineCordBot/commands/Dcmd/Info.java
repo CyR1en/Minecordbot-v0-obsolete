@@ -2,7 +2,9 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
+import eb.cyrien.MineCordBot.entity.Messenger;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import org.bukkit.Bukkit;
 
 /**
  * Created by Ethan on 8/30/2016.
@@ -29,9 +31,11 @@ public class Info extends Command {
         String bindedChannel = e.getJDA().getTextChannelById(Main.botConfig.BINDED_CHANNEL).getName();
         int textChannels = e.getJDA().getTextChannels().size();
         int voiceChannels = e.getJDA().getVoiceChannels().size();
+        String version = Bukkit.getServer().getPluginManager().getPlugin("MineCordBot").getDescription().getVersion();
         String uptime = Main.getUptime();
         if(botNick == null || botNick == "")
             botNick = botName + " does not have a nickname";
+        Messenger.sendTyping(3, e);
         e.getTextChannel().sendMessage("**MineCordBot** " + " by Cyrien \n" +
                                         "_Bridge Minecraft and Discord._" +
                                         "\n~~-------~~ Bot Info ~~-------~~\n" +
@@ -40,10 +44,12 @@ public class Info extends Command {
                                         "**Binded to:** ``" + bindedChannel + "``\n" +
                                         "**Text Channels:** ``" + textChannels + "``\n" +
                                         "**Voice Channels:** ``" + voiceChannels + "``\n" +
-                                        "**Uptime:** ``" + uptime +"``");
+                                        "**Uptime:** ``" + uptime +"``\n" +
+                                        "**version:** ``" + version + "``");
     }
 
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
+        return;
     }
 }
