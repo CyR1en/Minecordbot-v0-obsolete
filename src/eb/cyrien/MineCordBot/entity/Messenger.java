@@ -41,6 +41,15 @@ public class Messenger extends ListenerAdapter implements Listener {
         Main.jda.getTextChannelById(Main.botConfig.BINDED_CHANNEL).sendMessage(msg);
     }
 
+    public static void sendTyping(double sec, MessageReceivedEvent e) {
+        long startTime = System.currentTimeMillis();
+        long diff = System.currentTimeMillis() - startTime;
+        while(diff < (sec * 1000)) {
+            e.getTextChannel().sendTyping();
+            diff = System.currentTimeMillis() - startTime;
+        }
+    }
+
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         boolean validChannel = event.getTextChannel().getId().equals(Main.botConfig.BINDED_CHANNEL);

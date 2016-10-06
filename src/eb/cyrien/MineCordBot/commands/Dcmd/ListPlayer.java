@@ -2,6 +2,7 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
+import eb.cyrien.MineCordBot.entity.Messenger;
 import net.dv8tion.jda.entities.TextChannel;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import org.bukkit.Bukkit;
@@ -24,7 +25,6 @@ public class ListPlayer extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-        e.getTextChannel().sendTyping();
         String blockFix = "```";
         TextChannel tc = e.getTextChannel();
         tc.sendMessage("Online Players in " + Bukkit.getServer().getName());
@@ -38,6 +38,7 @@ public class ListPlayer extends Command {
                 i++;
             }
         s += blockFix;
+        Messenger.sendTyping(4, e);
         e.getTextChannel().sendMessage(s);
     }
 

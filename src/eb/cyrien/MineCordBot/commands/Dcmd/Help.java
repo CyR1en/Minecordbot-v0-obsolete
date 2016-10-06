@@ -2,6 +2,7 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
+import eb.cyrien.MineCordBot.entity.Messenger;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Map;
@@ -24,7 +25,6 @@ public class Help extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-        e.getTextChannel().sendTyping();
         Map<String, Command> map = new TreeMap<>(Main.commands);
         if(args.length == 1) {
             if(!map.containsKey(args[0]))
@@ -40,6 +40,7 @@ public class Help extends Command {
             for (Map.Entry<String, Command> entry : map.entrySet())
                 out += cmdExec + entry.getKey() + " - " + entry.getValue().getDescription() + "\n";
             out += "```";
+            Messenger.sendTyping(1.3, e);
             e.getTextChannel().sendMessage(out);
         }
     }

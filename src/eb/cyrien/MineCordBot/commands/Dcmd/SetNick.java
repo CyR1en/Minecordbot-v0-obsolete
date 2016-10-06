@@ -2,6 +2,7 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
+import eb.cyrien.MineCordBot.entity.Messenger;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 public class SetNick extends Command {
@@ -24,7 +25,6 @@ public class SetNick extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-        e.getTextChannel().sendTyping();
         e.getJDA().getAccountManager().setNickname(e.getJDA().getTextChannelById
                 (Main.botConfig.BINDED_CHANNEL).getGuild(), Main.concatenateArgs(0, args));
         e.getJDA().getAccountManager().update();
@@ -32,9 +32,10 @@ public class SetNick extends Command {
 
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
-        if(success)
+        if (success) {
+            Messenger.sendTyping(.8, e);
             e.getTextChannel().sendMessage("Nickname changed! :white_check_mark:");
-        else
+        } else
             e.getTextChannel().sendMessage(noPermMessage());
     }
 }

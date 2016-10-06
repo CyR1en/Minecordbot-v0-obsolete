@@ -1,7 +1,9 @@
 package eb.cyrien.MineCordBot.commands.Dcmd;
 
+
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
+import eb.cyrien.MineCordBot.entity.Messenger;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.utils.AvatarUtil;
 
@@ -51,15 +53,16 @@ public class SetAvatar extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-        e.getTextChannel().sendTyping();
+        Messenger.sendTyping(.8, e);
         e.getTextChannel().sendMessage("Setting Avatar");
     }
 
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
-        if (success)
+        if (success) {
+            Messenger.sendTyping(3, e);
             e.getTextChannel().sendMessage("Success :ok_hand:");
-        else
+        } else
             e.getTextChannel().sendMessage(noPermMessage());
     }
 

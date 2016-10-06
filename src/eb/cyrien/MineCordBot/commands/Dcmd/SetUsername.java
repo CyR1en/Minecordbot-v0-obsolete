@@ -2,6 +2,7 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
+import eb.cyrien.MineCordBot.entity.Messenger;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 public class SetUsername extends Command {
@@ -24,16 +25,16 @@ public class SetUsername extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-        e.getTextChannel().sendTyping();
         e.getJDA().getAccountManager().setUsername(Main.concatenateArgs(0, args));
         e.getJDA().getAccountManager().update();
     }
 
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
-        if(success)
+        if (success) {
+            Messenger.sendTyping(3, e);
             e.getTextChannel().sendMessage("Username changed! :white_check_mark:");
-        else
+        } else
             e.getTextChannel().sendMessage(noPermMessage());
     }
 }

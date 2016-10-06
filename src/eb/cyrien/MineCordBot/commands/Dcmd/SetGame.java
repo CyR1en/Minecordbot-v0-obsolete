@@ -2,6 +2,7 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
+import eb.cyrien.MineCordBot.entity.Messenger;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 public class SetGame extends Command {
@@ -16,10 +17,9 @@ public class SetGame extends Command {
 
     @Override
     public boolean called(String[] args, MessageReceivedEvent e) {
-        e.getTextChannel().sendTyping();
         String authID = e.getAuthor().getId();
-        if(!hasPermission(authID))
-            if(!authID.trim().equalsIgnoreCase(Main.botConfig.OWNER_ID.trim()))
+        if (!hasPermission(authID))
+            if (!authID.trim().equalsIgnoreCase(Main.botConfig.OWNER_ID.trim()))
                 return false;
         return true;
     }
@@ -32,9 +32,10 @@ public class SetGame extends Command {
 
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
-        if(success)
+        if (success) {
+            Messenger.sendTyping(.8, e);
             e.getTextChannel().sendMessage(":white_check_mark:");
-        else
+        } else
             e.getTextChannel().sendMessage(noPermMessage());
     }
 }
