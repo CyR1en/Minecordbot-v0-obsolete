@@ -74,6 +74,7 @@ public class Main extends JavaPlugin {
         commands.put("setstreaming", new SetStreaming());
         commands.put("mcmd", new Mcmd());
         commands.put("info", new Info());
+        commands.put("shutdown", new Shutdown());
     }
 
     @Override
