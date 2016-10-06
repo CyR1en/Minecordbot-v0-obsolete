@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 0.2.4 (2016-10-5)
+
+**Feature**
+
+  * Better math evaluation. It can do basic trig functions and also exponents (ie. sqrt(6^2 + 2 * 10))
+  * Added shutdown command.
+  * Better typing indicators
+  * Better Ping response, it now shows the time.
+  
+**Bug fix**
+  
+  * Fixed problem on detecting if a message is an equation and resorted into parsing.
+  
 ## 0.2.3 (2016-10-2)
 
 **Feature**
