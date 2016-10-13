@@ -3,7 +3,7 @@ Bridge Minecraft and Discord using MineCordBot .
 
 _Tested on CraftBukkit1.9.4, CraftBukkit1.10, and Spigot1.10_
 
-current version : **MineCordBot_R0.2.4**
+current version : **MineCordBot_R0.2.5**
 
 ## Feature
  * Binds a channel to Minecraft. (This includes, death, join, disconnect, etc. events)
@@ -27,6 +27,8 @@ current version : **MineCordBot_R0.2.4**
  * ~!ping - test if the bot is resposinve.
  * ~!reload - reload botConfig.yml.
  * ~!ls - lists online players in the server.
+      - ~!ls [update:(true or false)]
+      - ~!ls [update:true] [Updated Intervar(seconds)]
  * ~!syntest [text] - Test different syntax highlighting for a specific text.
  * ~!mcmd [command] - Do a minecraft command from discord.
  * ~!info - Know more information about the bot.
