@@ -40,7 +40,7 @@ public class Help extends Command {
             for (Map.Entry<String, Command> entry : map.entrySet())
                 out += cmdExec + entry.getKey() + " - " + entry.getValue().getDescription() + "\n";
             out += "```";
-            Messenger.sendTyping(1.3, e);
+            sendTyping(.5, e);
             e.getTextChannel().sendMessage(out);
         }
     }

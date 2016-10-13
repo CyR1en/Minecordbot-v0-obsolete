@@ -34,7 +34,7 @@ public class Shutdown extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-        Messenger.sendTyping(0.2, e);
+        sendTyping(0.2, e);
         e.getTextChannel().sendMessage(":wave:");
         e.getJDA().shutdown();
         //timer.schedule(new Restart(), 3000);

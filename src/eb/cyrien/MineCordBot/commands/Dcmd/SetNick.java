@@ -33,7 +33,7 @@ public class SetNick extends Command {
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
         if (success) {
-            Messenger.sendTyping(.8, e);
+            sendTyping(.8, e);
             e.getTextChannel().sendMessage("Nickname changed! :white_check_mark:");
         } else
             e.getTextChannel().sendMessage(noPermMessage());

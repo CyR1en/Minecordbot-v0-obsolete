@@ -32,7 +32,7 @@ public class SetUsername extends Command {
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
         if (success) {
-            Messenger.sendTyping(3, e);
+            sendTyping(1, e);
             e.getTextChannel().sendMessage("Username changed! :white_check_mark:");
         } else
             e.getTextChannel().sendMessage(noPermMessage());

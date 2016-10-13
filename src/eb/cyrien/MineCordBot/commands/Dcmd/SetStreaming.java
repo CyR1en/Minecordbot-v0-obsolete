@@ -34,7 +34,7 @@ public class SetStreaming extends Command {
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
         if (success) {
-            Messenger.sendTyping(1, e);
+            sendTyping(1, e);
             e.getTextChannel().sendMessage("I am now streaming.");
         } else
             e.getTextChannel().sendMessage(noPermMessage());

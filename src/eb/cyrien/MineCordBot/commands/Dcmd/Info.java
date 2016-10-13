@@ -35,7 +35,7 @@ public class Info extends Command {
         String uptime = Main.getUptime();
         if(botNick == null || botNick == "")
             botNick = botName + " does not have a nickname";
-        Messenger.sendTyping(3, e);
+        sendTyping(.3, e);
         e.getTextChannel().sendMessage("**MineCordBot** " + " by Cyrien \n" +
                                         "_Bridge Minecraft and Discord._" +
                                         "\n~~-------~~ Bot Info ~~-------~~\n" +
