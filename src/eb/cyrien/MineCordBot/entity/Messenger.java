@@ -1,12 +1,10 @@
 package eb.cyrien.MineCordBot.entity;
 
 import eb.cyrien.MineCordBot.Main;
-import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.hooks.ListenerAdapter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.craftbukkit.v1_10_R1.command.CraftConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
@@ -16,7 +14,6 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.event.server.ServerCommandEvent;
 
 public class Messenger extends ListenerAdapter implements Listener {
 
@@ -37,8 +34,12 @@ public class Messenger extends ListenerAdapter implements Listener {
         Main.log.info(author + " > discord: " + msg);
     }
 
-    public void sendMessageToDiscord(String msg) {
+    public void sendEventsToDiscord(String msg) {
         Main.jda.getTextChannelById(Main.botConfig.BINDED_CHANNEL).sendMessage(msg);
+    }
+
+    public void sendMessageToDiscord(String msg, MessageReceivedEvent e) {
+        e.getTextChannel().sendMessage(msg);
     }
 
     public static void sendTyping(double sec, MessageReceivedEvent e) {
@@ -62,19 +63,19 @@ public class Messenger extends ListenerAdapter implements Listener {
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent e) {
         String p = e.getPlayer().getName();
-        sendMessageToDiscord("```css\n" + p + " left the game```");
+        sendEventsToDiscord("```css\n" + p + " left the game```");
     }
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
         String p = e.getPlayer().getName();
-        sendMessageToDiscord("```css\n" + p + " joined the game```");
+        sendEventsToDiscord("```css\n" + p + " joined the game```");
     }
 
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent e) {
         String msg = e.getDeathMessage();
-        sendMessageToDiscord("```css\n" + "["+ msg + "]\n" + "```");
+        sendEventsToDiscord("```css\n" + "["+ msg + "]\n" + "```");
     }
 
     @EventHandler
