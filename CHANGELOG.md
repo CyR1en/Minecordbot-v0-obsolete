@@ -1,5 +1,24 @@
 # CHANGELOG
 
+## 0.2.5 (2016-10-12)
+
+**Feature**
+
+  * Math Listener is better now..
+  * Even better typing indicators.
+  * New ~!ls features.
+      * You can now decide if the ls message should be updated regularly.
+  * Removed the useless command "syntest".
+  
+**Code**
+  * Command class now extends Messenger class.
+  * Trash syntest command.
+  
+**Bug fix**
+  
+  * Fixed the ~!mcmd No permission but. Even the command was passed, it still said No permission.
+  * Fixed the slow typing speed...
+  
 ## 0.2.4 (2016-10-5)
 
 **Feature**
