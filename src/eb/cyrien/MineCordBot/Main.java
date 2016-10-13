@@ -66,7 +66,6 @@ public class Main extends JavaPlugin {
         commands.put("setavatar", new SetAvatar());
         commands.put("ls", new ListPlayer());
         commands.put("setgame", new SetGame());
-        commands.put("syntest", new SynTest());
         commands.put("reload", new DReload());
         commands.put("help", new Help());
         commands.put("setusername", new SetUsername());
