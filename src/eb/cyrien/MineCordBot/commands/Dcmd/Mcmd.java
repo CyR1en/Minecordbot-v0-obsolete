@@ -30,6 +30,9 @@ public class Mcmd extends Command {
 
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
-        e.getTextChannel().sendMessage(noPermMessage());
+        if (success)
+            e.getTextChannel().sendMessage(":ok_hand:");
+        else
+            e.getTextChannel().sendMessage(noPermMessage());
     }
 }
