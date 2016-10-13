@@ -1,10 +1,11 @@
 package eb.cyrien.MineCordBot;
 
+import eb.cyrien.MineCordBot.entity.Messenger;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.ArrayList;
 
-public abstract class Command {
+public abstract class Command extends Messenger {
 
     private String usage;
     private String definition;
@@ -17,6 +18,14 @@ public abstract class Command {
 
     public String noPermMessage() {
         return "```css\n[You do not have permission]\n```";
+    }
+
+    public String invalidArgsMessage() {
+        return "```css\n[Invalid Argument(s)]\n```";
+    }
+
+    public String successMessage() {
+        return ":white_check_mark:";
     }
 
     public boolean hasPermission(String userID) {
