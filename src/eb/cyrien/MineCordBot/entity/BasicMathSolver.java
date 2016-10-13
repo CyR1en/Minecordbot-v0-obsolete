@@ -4,17 +4,12 @@ import eb.cyrien.MineCordBot.Main;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.hooks.ListenerAdapter;
 
-import javax.management.RuntimeErrorException;
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
-
 public class BasicMathSolver extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         boolean notSelf = !event.getMessage().getAuthor().getId().equalsIgnoreCase(Main.botConfig.BOT_ID);
-        if (notSelf) {
+        if (notSelf && event.getMessage().getContent().length() > 2) {
             double sol;
             boolean validEquation;
             try {
@@ -101,22 +96,5 @@ public class BasicMathSolver extends ListenerAdapter {
                 return x;
             }
         }.parse();
-    }
-
-    private void solve(String str, MessageReceivedEvent e) {
-        ScriptEngineManager mgr = new ScriptEngineManager();
-        ScriptEngine engine = mgr.getEngineByName("JavaScript");
-        String equation = str;
-        String result;
-        try {
-            result = engine.eval(str).toString();
-        } catch (ScriptException e1) {
-            result = "`Syntax Error`";
-            e1.printStackTrace();
-        }
-        if (result.equalsIgnoreCase("syntax error"))
-            e.getTextChannel().sendMessage(result);
-        else
-            e.getTextChannel().sendMessage("`" + equation + " = " + result + "`");
     }
 }
