@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 0.2.6 (2016-10-15)
+
+**Feature**
+  
+  * Better ~!ls update function.
+  * Removed last argument for ~!ls, it no longer needs an update interval.
+  
+**Bug fix**
+  
+  * Fixed the updating list... it was crap..
+  * Fixed info showing wrong textchannel counts in the server.
+
 ## 0.2.5 (2016-10-12)
 
 **Feature**
