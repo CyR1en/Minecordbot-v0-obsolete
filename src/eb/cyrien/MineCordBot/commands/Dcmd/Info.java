@@ -29,7 +29,7 @@ public class Info extends Command {
         String botName = e.getJDA().getSelfInfo().getUsername();
         String botNick = e.getJDA().getGuildById(e.getGuild().getId()).getNicknameForUser(e.getJDA().getUserById(Main.botConfig.BOT_ID));
         String bindedChannel = e.getJDA().getTextChannelById(Main.botConfig.BINDED_CHANNEL).getName();
-        int textChannels = e.getJDA().getTextChannels().size();
+        int textChannels = e.getJDA().getTextChannels().size() - 1;
         int voiceChannels = e.getJDA().getVoiceChannels().size();
         String version = Bukkit.getServer().getPluginManager().getPlugin("MineCordBot").getDescription().getVersion();
         String uptime = Main.getUptime();
