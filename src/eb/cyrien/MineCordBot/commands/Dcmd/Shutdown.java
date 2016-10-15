@@ -2,15 +2,9 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
-import eb.cyrien.MineCordBot.entity.BasicMathSolver;
-import eb.cyrien.MineCordBot.entity.Messenger;
-import eb.cyrien.MineCordBot.utils.CommandListener;
-import net.dv8tion.jda.JDABuilder;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
-import javax.security.auth.login.LoginException;
 import java.util.Timer;
-import java.util.TimerTask;
 
 public class Shutdown extends Command {
 
@@ -37,7 +31,6 @@ public class Shutdown extends Command {
         sendTyping(0.2, e);
         e.getTextChannel().sendMessage(":wave:");
         e.getJDA().shutdown();
-        //timer.schedule(new Restart(), 3000);
     }
 
 
@@ -45,27 +38,4 @@ public class Shutdown extends Command {
     public void executed(boolean success, MessageReceivedEvent e) {
         return;
     }
-
-    /*
-    class Restart extends TimerTask {
-
-        @Override
-        public void run() {
-            try {
-                Main.jda = new JDABuilder()
-                        .addListener(new BasicMathSolver())
-                        .addListener(new Messenger())
-                        .addListener(new CommandListener())
-                        .setBotToken(Main.botConfig.BOT_TOKEN).buildBlocking();
-                Main.jda.setAutoReconnect(true);
-            } catch (LoginException e) {
-                System.err.println("Could not log in");
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            timer.cancel();
-        }
-    }
-    */
 }

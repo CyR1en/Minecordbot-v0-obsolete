@@ -2,7 +2,6 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
-import eb.cyrien.MineCordBot.entity.Messenger;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 public class SetStreaming extends Command {
