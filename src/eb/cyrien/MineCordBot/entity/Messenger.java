@@ -1,6 +1,7 @@
 package eb.cyrien.MineCordBot.entity;
 
 import eb.cyrien.MineCordBot.Main;
+import eb.cyrien.MineCordBot.commands.Dcmd.ListPlayer;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.hooks.ListenerAdapter;
 import org.bukkit.Bukkit;
@@ -14,6 +15,8 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+
+import java.util.List;
 
 public class Messenger extends ListenerAdapter implements Listener {
 
@@ -64,12 +67,16 @@ public class Messenger extends ListenerAdapter implements Listener {
     public void onPlayerQuit(PlayerQuitEvent e) {
         String p = e.getPlayer().getName();
         sendEventsToDiscord("```css\n" + p + " left the game```");
+        if(ListPlayer.updating)
+            ListPlayer.updateList(0.5);
     }
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
         String p = e.getPlayer().getName();
         sendEventsToDiscord("```css\n" + p + " joined the game```");
+        if(ListPlayer.updating)
+            ListPlayer.updateList();
     }
 
     @EventHandler
