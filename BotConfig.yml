@@ -4,11 +4,13 @@ bot_token: sample.bot_token
 # User ID of the owner
 owner_id: 123456789
 
-# Text channel ID of the guild you want to bind to Minecraft 
-chat_channel: 987654321
-
 # Set the prefix of your command
 command_executor: "~!"
+
+# Text channel ID of the guild you want to bind to Minecraft
+chat_channel:
+  - 9876543212
+  - 9382382323
 
 # ID's of people who has permissions to do MineCordBot commands
 whitelist:
