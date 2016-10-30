@@ -4,12 +4,15 @@ import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
+import java.io.IOException;
+
 public class DReload extends Command {
 
-    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "reload";
+    private final String HELP = Main.getInstance().getBotConfig().COMMAND_EXECUTOR + "reload";
     private final String DESCRIPTION = " Reload BotConfig.yml";
 
-    public DReload () {
+    public DReload (Main instance) {
+        super(instance);
         setUsage(HELP);
         setDescription(DESCRIPTION);
     }
@@ -17,7 +20,7 @@ public class DReload extends Command {
     @Override
     public boolean called(String[] args, MessageReceivedEvent e) {
         if(!hasPermission(e.getAuthor().getId()))
-            if(!e.getAuthor().getId().trim().equals(Main.botConfig.OWNER_ID.trim()))
+            if(!e.getAuthor().getId().trim().equals(instance.getBotConfig().OWNER_ID.trim()))
                 return false;
         return true;
     }
@@ -25,7 +28,13 @@ public class DReload extends Command {
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
         e.getTextChannel().sendTyping();
-        Main.botConfig.reload();
+        try {
+            instance.getPluginFile().save();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+            return;
+        }
+        instance.getBotConfig().reload();
     }
 
     @Override

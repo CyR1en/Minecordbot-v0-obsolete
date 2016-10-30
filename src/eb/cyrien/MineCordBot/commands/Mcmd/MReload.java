@@ -6,12 +6,14 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
+import java.io.IOException;
+
 public class MReload implements CommandExecutor {
 
-    private Main plug;
+    private Main instance;
 
     public MReload(Main plug) {
-        this.plug = plug;
+        this.instance = plug;
     }
 
     private boolean preCommand(CommandSender commandSender, Command command, String[] args) {
@@ -28,7 +30,13 @@ public class MReload implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] args) {
         if(!preCommand(commandSender, command, args))
             return true;
-        Main.botConfig.reload();
+        try {
+            instance.getPluginFile().save();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+            return true;
+        }
+        instance.getBotConfig().reload();
         return true;
     }
 
