@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## 0.2.7 (2016-10-29)
+
+**Feature**
+  
+  * Added mutli binded text channel support.
+  * Added setexecutor command.
+  * Added textchannel commands.
+  * Added invite command.
+
+**Code**
+
+  * Major code refactoring.
+  * Added MessengerUtil.
+  
+**Bug fix**
+  
+  * Fixed discord and minecraft reload command.
+  
 ## 0.2.6 (2016-10-15)
 
 **Feature**
