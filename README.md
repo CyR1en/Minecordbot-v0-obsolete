@@ -3,12 +3,12 @@ Bridge Minecraft and Discord using MineCordBot .
 
 _Tested on CraftBukkit1.9.4, CraftBukkit1.10, and Spigot1.10_
 
-current version : **MineCordBot_R0.2.6**
+current version : **MineCordBot_R0.2.7**
 
 ## Feature
- * Binds a channel to Minecraft. (This includes, death, join, disconnect, etc. events)
+ * Binds multiple channel to Minecraft. (This includes, death, join, disconnect, etc. events)
  * Custom commands that applies to both Minecraft and Discord server.
- * Do Discord bot commands from minecraft.
+ * Do Discord bot commands from minecraft and vice-versa.
  * Set your desired Discord command executor (Prefix to determine if a text is a command. i.e "~!", ~!sampleCommand).
  * It solves basic math for you. (i.e 1 + (4 * 5) /100)
 
@@ -32,6 +32,11 @@ current version : **MineCordBot_R0.2.6**
  * ~!mcmd [command] - Do a minecraft command from discord.
  * ~!info - Know more information about the bot.
  * ~!shutdown - Shutdown the bot.
+ * ~!setexecutor [executor] - sets the executor for the bot.
+ * ~!invite - sends you the Oauth2 link to add the bot easily to a server.
+ * ~!textchannel - text channel commands.
+      - ~!textchannel [add:remove] [text channel id] - add or remove binded text channel.
+      - ~!textchannel [list] - list all binded channel.
  * _More commands to come_.
 
 **Minecraft Commands**
