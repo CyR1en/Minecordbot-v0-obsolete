@@ -28,7 +28,6 @@ current version : **MineCordBot_R0.2.7**
  * ~!reload - reload botConfig.yml.
  * ~!ls - lists online players in the server.
       - ~!ls [update:(true or false)]
- * ~!syntest [text] - Test different syntax highlighting for a specific text.
  * ~!mcmd [command] - Do a minecraft command from discord.
  * ~!info - Know more information about the bot.
  * ~!shutdown - Shutdown the bot.
