@@ -24,7 +24,9 @@ public class Invite extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-        MessengerUtil.sendMessageToDiscord("https://discordapp.com/oauth2/authorize?client_id=" + instance.getBotConfig().BOT_ID + "&scope=bot&permissions=0", e);
+        MessengerUtil.sendPrivateMessageToUser(e, "https://discordapp.com/oauth2/authorize?client_id=" + instance.getBotConfig().BOT_ID + "&scope=bot&permissions=0");
+        String botName = instance.jda.getUserById(instance.getBotConfig().BOT_ID).getUsername();
+        MessengerUtil.sendMessageToDiscord(e, e.getAuthor().getAsMention() + " the Oauth2 link for `" + botName + "` have been send to you privately.");
     }
 
     @Override

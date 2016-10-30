@@ -37,9 +37,9 @@ public class ListPlayer extends Command {
         String s = generateList();
         if (args.length == 0 || args == null) {
             MessengerUtil.sendTyping(.3, e);
-            MessengerUtil.sendMessageToDiscord(s, e);
+            MessengerUtil.sendMessageToDiscord(e, s);
         } else if (args.length > 2) {
-            MessengerUtil.sendMessageToDiscord(invalidArgsMessage(), e);
+            MessengerUtil.sendMessageToDiscord(e, invalidArgsMessage());
         } else {
             if (args[0].equalsIgnoreCase("update:true")) {
                 updating = true;
@@ -49,9 +49,9 @@ public class ListPlayer extends Command {
                 System.out.println("Done enabling update ls feature");
             } else if (args[0].equalsIgnoreCase("update:false")) {
                 updating = false;
-                MessengerUtil.sendMessageToDiscord(successMessage(), e);
+                MessengerUtil.sendMessageToDiscord(e, successMessage());
             } else
-                MessengerUtil.sendMessageToDiscord(invalidArgsMessage(), e);
+                MessengerUtil.sendMessageToDiscord(e, invalidArgsMessage());
         }
     }
 
