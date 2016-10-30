@@ -3,14 +3,14 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.hooks.ListenerAdapter;
 
 public class Ping extends Command{
 
-    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "ping";
+    private final String HELP = Main.getInstance().getBotConfig().COMMAND_EXECUTOR + "ping";
     private final String DESCRIPTION = "Test bot's responsiveness";
 
-    public Ping() {
+    public Ping(Main instance) {
+        super(instance);
         setUsage(HELP);
         setDescription(DESCRIPTION);
     }

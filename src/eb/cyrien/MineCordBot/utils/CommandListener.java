@@ -7,16 +7,22 @@ import net.dv8tion.jda.hooks.ListenerAdapter;
 
 public class CommandListener extends ListenerAdapter {
 
+    private Main instance;
+
+    public CommandListener(Main instance) {
+        this.instance = instance;
+    }
+
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
-        boolean execHead = event.getMessage().getContent().startsWith(Main.botConfig.COMMAND_EXECUTOR);
+        boolean execHead = event.getMessage().getContent().startsWith(instance.getBotConfig().COMMAND_EXECUTOR);
         boolean notSelf = event.getMessage().getAuthor().getId() != event.getJDA().getSelfInfo().getId();
         if(execHead && notSelf)
-            Main.handleCommand(Main.parser.parse(event.getMessage().getContent(), event));
+            instance.handleCommand(instance.getParser().parse(event.getMessage().getContent(), event));
     }
 
     @Override
     public void onReady(ReadyEvent event) {
-        //Main.log("status", "Logged in as" + event.getJDA().getSelfInfo().getUsername());
+        instance.getLogger().info("Logged in as " + event.getJDA().getSelfInfo().getUsername());
     }
 }

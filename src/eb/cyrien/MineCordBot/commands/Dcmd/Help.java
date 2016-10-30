@@ -2,7 +2,7 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
-import eb.cyrien.MineCordBot.entity.Messenger;
+import eb.cyrien.MineCordBot.utils.MessengerUtil;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Map;
@@ -10,10 +10,11 @@ import java.util.TreeMap;
 
 public class Help extends Command {
 
-    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "help <command>";
+    private final String HELP = Main.getInstance().getBotConfig().COMMAND_EXECUTOR + "help <command>";
     private final String DESCRIPTION = "List all commands.";
 
-    public Help() {
+    public Help(Main instance) {
+        super(instance);
         setUsage(HELP);
         setDescription(DESCRIPTION);
     }
@@ -25,7 +26,7 @@ public class Help extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-        Map<String, Command> map = new TreeMap<>(Main.commands);
+        Map<String, Command> map = new TreeMap<>(instance.getCommands());
         if(args.length == 1) {
             if(!map.containsKey(args[0]))
                 e.getTextChannel().sendMessage("`There's no such " + args[0] + " command.`");
@@ -35,12 +36,12 @@ public class Help extends Command {
                         + "``" + "\n**Description: **" + "``" + cmd.getDescription() + "``");
             }
         } else if (args.length == 0 || args == null) {
-            String cmdExec = Main.botConfig.COMMAND_EXECUTOR;
+            String cmdExec = instance.getBotConfig().COMMAND_EXECUTOR;
             String out = "```\n";
             for (Map.Entry<String, Command> entry : map.entrySet())
                 out += cmdExec + entry.getKey() + " - " + entry.getValue().getDescription() + "\n";
             out += "```";
-            sendTyping(.5, e);
+            MessengerUtil.sendTyping(.5, e);
             e.getTextChannel().sendMessage(out);
         }
     }

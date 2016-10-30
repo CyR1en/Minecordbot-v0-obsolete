@@ -3,7 +3,7 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
-import eb.cyrien.MineCordBot.entity.Messenger;
+import eb.cyrien.MineCordBot.utils.MessengerUtil;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.utils.AvatarUtil;
 
@@ -15,10 +15,11 @@ import java.net.URLConnection;
 
 public class SetAvatar extends Command {
 
-    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "setavatar <Image URL>";
+    private final String HELP = Main.getInstance().getBotConfig().COMMAND_EXECUTOR + "setavatar <Image URL>";
     private final String DESCRIPTION = "Change the bot's Avatar";
 
-    public SetAvatar() {
+    public SetAvatar(Main instance) {
+        super(instance);
         setUsage(HELP);
         setDescription(DESCRIPTION);
     }
@@ -28,7 +29,7 @@ public class SetAvatar extends Command {
         e.getTextChannel().sendTyping();
         String authID = e.getAuthor().getId();
         if (!hasPermission(authID))
-            if (!authID.trim().toLowerCase().equalsIgnoreCase(Main.botConfig.OWNER_ID.trim().toLowerCase()))
+            if (!authID.trim().toLowerCase().equalsIgnoreCase(instance.getBotConfig().OWNER_ID.trim().toLowerCase()))
                 return false;
         try {
             System.out.println(args[0]);
@@ -41,11 +42,11 @@ public class SetAvatar extends Command {
         } catch (MalformedURLException e1) {
             e1.printStackTrace();
             e.getTextChannel().sendMessage("\'MalformedURLException: please check if you entered a correct URL\'");
-            Main.log.warning("MalformedURLException");
+            instance.getLogger().warning("MalformedURLException");
             return false;
         } catch (IOException e1) {
             e1.printStackTrace();
-            Main.log.warning("IOException");
+            instance.getLogger().warning("IOException");
             return false;
         }
         return true;
@@ -53,14 +54,14 @@ public class SetAvatar extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-        Messenger.sendTyping(.8, e);
+        MessengerUtil.sendTyping(.8, e);
         e.getTextChannel().sendMessage("Setting Avatar");
     }
 
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
         if (success) {
-            Messenger.sendTyping(3, e);
+            MessengerUtil.sendTyping(3, e);
             e.getTextChannel().sendMessage("Success :ok_hand:");
         } else
             e.getTextChannel().sendMessage(noPermMessage());

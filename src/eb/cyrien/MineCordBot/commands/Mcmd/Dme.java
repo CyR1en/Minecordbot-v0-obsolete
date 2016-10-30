@@ -1,6 +1,7 @@
 package eb.cyrien.MineCordBot.commands.Mcmd;
 
 import eb.cyrien.MineCordBot.Main;
+import eb.cyrien.MineCordBot.utils.MessengerUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -31,10 +32,11 @@ public class Dme implements CommandExecutor {
 
     private void command(CommandSender commandSender, String[] args) {
         Player p = (Player) commandSender;
-        String msg = Main.concatenateArgs(0, args);
+        String msg = MessengerUtil.concatenateArgs(0, args);
         for(Player pl : plug.getServer().getOnlinePlayers())
             pl.sendMessage(ChatColor.translateAlternateColorCodes('&', "&5* " + "&r" + p.getDisplayName() + "&5" + msg));
-        Main.jda.getTextChannelById(Main.botConfig.BINDED_CHANNEL).sendMessage("`* " + p.getName() + msg + "`");
+        for(String s : plug.getBotConfig().BINDED_CHANNELS)
+            plug.jda.getTextChannelById(s).sendMessage("`* " + p.getName() + msg + "`");
     }
 
     @Override

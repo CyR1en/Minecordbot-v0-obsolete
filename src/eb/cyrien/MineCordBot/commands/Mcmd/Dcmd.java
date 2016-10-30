@@ -1,6 +1,7 @@
 package eb.cyrien.MineCordBot.commands.Mcmd;
 
 import eb.cyrien.MineCordBot.Main;
+import eb.cyrien.MineCordBot.utils.MessengerUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -27,8 +28,9 @@ public class Dcmd implements CommandExecutor {
     }
 
     private void command(CommandSender commandSender, String[] args) {
-        Main.jda.getTextChannelById(Main.botConfig.BINDED_CHANNEL).sendMessage(Main.concatenateArgs(0, args));
-        Main.log.info(commandSender.getName() + " Executed a discord command : " + args[0]);
+        for(String s : plugin.getBotConfig().BINDED_CHANNELS)
+            plugin.jda.getTextChannelById(s).sendMessage(MessengerUtil.concatenateArgs(0, args));
+        plugin.getLogger().info(commandSender.getName() + " Executed a discord command : " + args[0]);
     }
 
     @Override

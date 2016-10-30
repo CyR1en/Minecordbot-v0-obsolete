@@ -2,14 +2,16 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
+import eb.cyrien.MineCordBot.utils.MessengerUtil;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 public class SetStreaming extends Command {
 
-    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "setstreaming <title> <streaming link>";
+    private final String HELP = Main.getInstance().getBotConfig().COMMAND_EXECUTOR + "setstreaming <title> <streaming link>";
     private final String DESCRIPTION = "set what the bot is streaming";
 
-    public SetStreaming() {
+    public SetStreaming(Main instance) {
+        super(instance);
         setUsage(HELP);
         setDescription(DESCRIPTION);
     }
@@ -17,7 +19,7 @@ public class SetStreaming extends Command {
     @Override
     public boolean called(String[] args, MessageReceivedEvent e) {
         if (!hasPermission(e.getAuthor().getId()))
-            if (!e.getAuthor().getId().equals(Main.botConfig.OWNER_ID))
+            if (!e.getAuthor().getId().equals(instance.getBotConfig().OWNER_ID))
                 return false;
         if (args.length > 2 || args.length == 0 || args.length < 2 || args == null)
             return false;
@@ -33,7 +35,7 @@ public class SetStreaming extends Command {
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
         if (success) {
-            sendTyping(1, e);
+            MessengerUtil.sendTyping(1, e);
             e.getTextChannel().sendMessage("I am now streaming.");
         } else
             e.getTextChannel().sendMessage(noPermMessage());

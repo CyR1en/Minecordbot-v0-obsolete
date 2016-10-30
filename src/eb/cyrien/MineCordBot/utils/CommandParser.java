@@ -10,7 +10,7 @@ public class CommandParser {
     public CommandContainer parse(String rw, MessageReceivedEvent e) {
         ArrayList<String> split = new ArrayList<>();
         String raw = rw;
-        String beheaded = raw.replaceFirst(Main.botConfig.COMMAND_EXECUTOR, "");
+        String beheaded = raw.replaceFirst(Main.getInstance().getBotConfig().COMMAND_EXECUTOR, "");
         String[] splitBeheaded = beheaded.split(" ");
         for (String s : splitBeheaded)
             split.add(s);

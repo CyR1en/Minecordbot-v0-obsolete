@@ -5,10 +5,15 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.hooks.ListenerAdapter;
 
 public class BasicMathSolver extends ListenerAdapter {
+    private Main instance;
+
+    public BasicMathSolver(Main instance) {
+        this.instance = instance;
+    }
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
-        boolean notSelf = !event.getMessage().getAuthor().getId().equalsIgnoreCase(Main.botConfig.BOT_ID);
+        boolean notSelf = !event.getMessage().getAuthor().getId().equalsIgnoreCase(instance.getBotConfig().BOT_ID);
         if (notSelf && event.getMessage().getContent().length() > 2) {
             double sol;
             boolean validEquation;

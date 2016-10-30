@@ -10,6 +10,10 @@ public abstract class Command extends Messenger {
     private String usage;
     private String definition;
 
+    public Command(Main instance) {
+        super(instance);
+    }
+
     public abstract boolean called(String[] args, MessageReceivedEvent e);
 
     public abstract void action(String[] args, MessageReceivedEvent e);
@@ -29,7 +33,7 @@ public abstract class Command extends Messenger {
     }
 
     public boolean hasPermission(String userID) {
-        ArrayList<String> wl = Main.botConfig.WHITELIST;
+        ArrayList<String> wl = instance.getBotConfig().WHITELIST;
         for (String s : wl) {
             if(s.equals(userID))
                 return true;

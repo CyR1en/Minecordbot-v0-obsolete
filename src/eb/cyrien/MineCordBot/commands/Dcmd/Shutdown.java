@@ -2,33 +2,30 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
+import eb.cyrien.MineCordBot.utils.MessengerUtil;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
-import java.util.Timer;
-
 public class Shutdown extends Command {
-
-    private Timer timer;
-    private final String HELP = Main.botConfig.COMMAND_EXECUTOR + "shutdown";
+    private final String HELP = Main.getInstance().getBotConfig().COMMAND_EXECUTOR + "shutdown";
     private final String DESCRIPTION = "Shutdown the bot";
 
-    public Shutdown() {
+    public Shutdown(Main instance) {
+        super(instance);
         setUsage(HELP);
         setDescription(DESCRIPTION);
-        timer = new Timer();
     }
 
     @Override
     public boolean called(String[] args, MessageReceivedEvent e) {
         String authID = e.getAuthor().getId();
-        if (!authID.trim().toLowerCase().equalsIgnoreCase(Main.botConfig.OWNER_ID.trim().toLowerCase()))
+        if (!authID.trim().toLowerCase().equalsIgnoreCase(instance.getBotConfig().OWNER_ID.trim().toLowerCase()))
             return false;
         return true;
     }
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-        sendTyping(0.2, e);
+        MessengerUtil.sendTyping(0.2, e);
         e.getTextChannel().sendMessage(":wave:");
         e.getJDA().shutdown();
     }
