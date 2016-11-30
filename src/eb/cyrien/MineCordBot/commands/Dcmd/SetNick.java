@@ -3,7 +3,9 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
 import eb.cyrien.MineCordBot.utils.MessengerUtil;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.entities.Guild;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.managers.GuildController;
 
 public class SetNick extends Command {
 
@@ -26,16 +28,16 @@ public class SetNick extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-        e.getJDA().getAccountManager().setNickname(e.getTextChannel().getGuild(), MessengerUtil.concatenateArgs(0, args));
-        e.getJDA().getAccountManager().update();
+        GuildController gc = new GuildController(e.getGuild());
+        gc.setNickname(e.getJDA().getGuildById(e.getGuild().getId()).getMember(e.getJDA().getUserById(instance.getBotConfig().BOT_ID)), MessengerUtil.concatenateArgs(0, args)).queue();
     }
 
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
         if (success) {
             MessengerUtil.sendTyping(.8, e);
-            e.getTextChannel().sendMessage("Nickname changed! :white_check_mark:");
+            e.getTextChannel().sendMessage("Nickname changed! :white_check_mark:").queue();
         } else
-            e.getTextChannel().sendMessage(noPermMessage());
+            e.getTextChannel().sendMessage(noPermMessage()).queue();
     }
 }

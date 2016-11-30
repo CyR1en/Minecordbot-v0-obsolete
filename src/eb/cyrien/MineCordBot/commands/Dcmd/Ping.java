@@ -2,9 +2,11 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
-public class Ping extends Command{
+import java.time.temporal.ChronoUnit;
+
+public class Ping extends Command {
 
     private final String HELP = Main.getInstance().getBotConfig().COMMAND_EXECUTOR + "ping";
     private final String DESCRIPTION = "Test bot's responsiveness";
@@ -22,14 +24,16 @@ public class Ping extends Command{
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-        long startTime = System.currentTimeMillis();
-        String mID = e.getTextChannel().sendMessage("Pong.").getId();
-        int diff = (int) (System.currentTimeMillis() - startTime);
-        e.getTextChannel().getMessageById(mID).updateMessage("Pong. `" + diff +"ms`");
+        e.getChannel().sendMessage("Pong: ...").queue(ms -> {
+            if (ms != null) {
+                ms.editMessage("Pong: " + e.getMessage().getCreationTime().until(ms.getCreationTime(), ChronoUnit.MILLIS) + "ms").queue();
+            }
+        });
     }
 
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
         return;
     }
+
 }

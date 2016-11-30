@@ -2,8 +2,10 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
+import eb.cyrien.MineCordBot.entity.DiscordCommandSender;
+import eb.cyrien.MineCordBot.entity.DiscordConsoleCommandSender;
 import eb.cyrien.MineCordBot.utils.MessengerUtil;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import org.bukkit.Bukkit;
 
 public class Mcmd extends Command {
@@ -27,14 +29,17 @@ public class Mcmd extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-        Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), MessengerUtil.concatenateArgs(0, args).trim());
+        if(args.length == 0 || args == null)
+            Bukkit.getServer().dispatchCommand(new DiscordCommandSender(e), "");
+        else if (args[0].equalsIgnoreCase("help"))
+            Bukkit.getServer().dispatchCommand(new DiscordCommandSender(e), MessengerUtil.concatenateArgs(0, args).trim());
+        else
+            Bukkit.getServer().dispatchCommand(new DiscordConsoleCommandSender(e), MessengerUtil.concatenateArgs(0, args).trim());
     }
 
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
-        if (success)
-            e.getTextChannel().sendMessage(":ok_hand:");
-        else
-            e.getTextChannel().sendMessage(noPermMessage());
+        if (!success)
+            e.getTextChannel().sendMessage(noPermMessage()).queue();
     }
 }

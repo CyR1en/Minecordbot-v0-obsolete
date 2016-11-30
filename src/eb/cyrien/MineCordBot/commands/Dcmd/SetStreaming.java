@@ -3,12 +3,16 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
 import eb.cyrien.MineCordBot.utils.MessengerUtil;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.entities.Game;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+
 
 public class SetStreaming extends Command {
 
     private final String HELP = Main.getInstance().getBotConfig().COMMAND_EXECUTOR + "setstreaming <title> <streaming link>";
     private final String DESCRIPTION = "set what the bot is streaming";
+
+    private String streamName;
 
     public SetStreaming(Main instance) {
         super(instance);
@@ -28,17 +32,17 @@ public class SetStreaming extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-        e.getJDA().getAccountManager().setStreaming(args[0], args[1]);
-        e.getJDA().getAccountManager().update();
+        streamName = args[0];
+        e.getJDA().getPresence().setGame(Game.of(streamName, args[1]));
     }
 
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
         if (success) {
             MessengerUtil.sendTyping(1, e);
-            e.getTextChannel().sendMessage("I am now streaming.");
+            e.getTextChannel().sendMessage("I am now streaming. `" + streamName + "`").queue();
         } else
-            e.getTextChannel().sendMessage(noPermMessage());
+            e.getTextChannel().sendMessage(noPermMessage()).queue();
     }
 
     @Override
