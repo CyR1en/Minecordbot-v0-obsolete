@@ -1,9 +1,10 @@
 # MineCordBot
 Bridge Minecraft and Discord using MineCordBot .
 
-_Tested on CraftBukkit1.9.4, CraftBukkit1.10, and Spigot1.10_
+_CB - CraftBukkit_
+_Tested on CB1.9.4, CB1.10, and Spigot1.10, CB1.11, Spigot1.11_
 
-current version : **MineCordBot_R0.2.7**
+current version : **MineCordBot_R-0.3.0**
 
 ## Feature
  * Binds multiple channel to Minecraft. (This includes, death, join, disconnect, etc. events)
