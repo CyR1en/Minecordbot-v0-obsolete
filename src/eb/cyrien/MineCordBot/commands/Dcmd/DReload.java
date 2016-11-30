@@ -2,14 +2,13 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
-import eb.cyrien.MineCordBot.utils.BotConfig;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.io.IOException;
 
 public class DReload extends Command {
 
-    private final String HELP = BotConfig.COMMAND_EXECUTOR + "reload";
+    private final String HELP = Main.getInstance().getBotConfig().COMMAND_EXECUTOR + "reload";
     private final String DESCRIPTION = " Reload BotConfig.yml";
 
     public DReload (Main instance) {
@@ -21,7 +20,7 @@ public class DReload extends Command {
     @Override
     public boolean called(String[] args, MessageReceivedEvent e) {
         if(!hasPermission(e.getAuthor().getId()))
-            if(!e.getAuthor().getId().trim().equals(BotConfig.OWNER_ID.trim()))
+            if(!e.getAuthor().getId().trim().equals(instance.getBotConfig().OWNER_ID.trim()))
                 return false;
         return true;
     }
@@ -41,9 +40,9 @@ public class DReload extends Command {
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
         if(success)
-            e.getTextChannel().sendMessage(":white_check_mark:").queue();
+            e.getTextChannel().sendMessage(":white_check_mark:");
         else
-            e.getTextChannel().sendMessage(noPermMessage()).queue();
+            e.getTextChannel().sendMessage(noPermMessage());
     }
 
 }

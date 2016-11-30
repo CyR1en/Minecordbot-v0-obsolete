@@ -1,9 +1,8 @@
 package eb.cyrien.MineCordBot.entity;
 
 import eb.cyrien.MineCordBot.Main;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
-
+import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.hooks.ListenerAdapter;
 
 public class BasicMathSolver extends ListenerAdapter {
     private Main instance;

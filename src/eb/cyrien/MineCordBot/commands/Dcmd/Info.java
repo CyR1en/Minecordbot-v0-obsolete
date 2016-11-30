@@ -3,8 +3,7 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
 import eb.cyrien.MineCordBot.utils.MessengerUtil;
-
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import org.bukkit.Bukkit;
 
 import java.util.ArrayList;
@@ -27,8 +26,8 @@ public class Info extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-        String botName = e.getJDA().getSelfUser().getName();
-        String botNick = e.getJDA().getGuildById(e.getGuild().getId()).getMember(e.getJDA().getUserById(instance.getBotConfig().BOT_ID)).getNickname();
+        String botName = e.getJDA().getSelfInfo().getUsername();
+        String botNick = e.getJDA().getGuildById(e.getGuild().getId()).getNicknameForUser(e.getJDA().getUserById(instance.getBotConfig().BOT_ID));
         String bindedChannel = new String();
         ArrayList<String> channels = instance.getBotConfig().BINDED_CHANNELS;
         for (int i = 0; i < channels.size(); i++)
@@ -52,7 +51,7 @@ public class Info extends Command {
                 "**Text Channels:** ``" + textChannels + "``\n" +
                 "**Voice Channels:** ``" + voiceChannels + "``\n" +
                 "**Uptime:** ``" + uptime + "``\n" +
-                "**version:** ``" + version + "``").queue();
+                "**version:** ``" + version + "``");
     }
 
     @Override

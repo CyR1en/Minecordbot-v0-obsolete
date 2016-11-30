@@ -17,11 +17,13 @@ public class MReload implements CommandExecutor {
     }
 
     private boolean preCommand(CommandSender commandSender, Command command, String[] args) {
-        if (!command.getName().equalsIgnoreCase("minecordbot"))
+        if(!command.getName().equalsIgnoreCase("minecordbot"))
             return usage(commandSender);
-        if (!commandSender.hasPermission("minecordbot.reload"))
+        if(!commandSender.hasPermission("minecordbot.reload"))
             return noPerm(commandSender);
-        return !(args == null || args.length < 1 || args.length > 2) || usage(commandSender);
+        if(args == null || args.length < 1 || args.length > 2)
+            return usage(commandSender);
+        return true;
     }
 
     @Override

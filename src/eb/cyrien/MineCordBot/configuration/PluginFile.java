@@ -28,22 +28,6 @@ public class PluginFile {
         file = YamlConfiguration.loadConfiguration(this.f);
     }
 
-    public void renew(Main p, String name, boolean copy ) {
-        f = new File(String.valueOf(p.getDataFolder().toString()) + "/" + name + ".yml");
-        if (f.exists()) {
-            if (copy) {
-                f.delete();
-                p.saveResource(String.valueOf(name) + ".yml", false);
-            } else {
-                try {
-                    f.createNewFile();
-                } catch (IOException ex) {
-                }
-            }
-        }
-        file = YamlConfiguration.loadConfiguration(this.f);
-    }
-
     public ConfigurationSection get(final String path) {
         return file.getConfigurationSection(path);
     }

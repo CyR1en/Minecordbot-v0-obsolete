@@ -3,7 +3,8 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
 import eb.cyrien.MineCordBot.utils.MessengerUtil;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.events.message.MessageReceivedEvent;
+
 public class SetUsername extends Command {
 
     private final String HELP = Main.getInstance().getBotConfig().COMMAND_EXECUTOR + "setusername <username>";
@@ -25,14 +26,16 @@ public class SetUsername extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-        e.getJDA().getSelfUser().getManager().setName(MessengerUtil.concatenateArgs(0, args)).queue(consumer ->
-                MessengerUtil.sendMessageToDiscord(e, "Username changed! :white_check_mark:")
-        );
+        e.getJDA().getAccountManager().setUsername(MessengerUtil.concatenateArgs(0, args));
+        e.getJDA().getAccountManager().update();
     }
 
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
-        if (!success)
-            e.getTextChannel().sendMessage(noPermMessage()).queue();
+        if (success) {
+            MessengerUtil.sendTyping(1, e);
+            e.getTextChannel().sendMessage("Username changed! :white_check_mark:");
+        } else
+            e.getTextChannel().sendMessage(noPermMessage());
     }
 }

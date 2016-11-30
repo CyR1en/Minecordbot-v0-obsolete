@@ -11,10 +11,8 @@ import eb.cyrien.MineCordBot.entity.Messenger;
 import eb.cyrien.MineCordBot.utils.BotConfig;
 import eb.cyrien.MineCordBot.utils.CommandListener;
 import eb.cyrien.MineCordBot.utils.CommandParser;
-import net.dv8tion.jda.core.AccountType;
-import net.dv8tion.jda.core.JDA;
-import net.dv8tion.jda.core.JDABuilder;
-import net.dv8tion.jda.core.exceptions.RateLimitedException;
+import net.dv8tion.jda.JDA;
+import net.dv8tion.jda.JDABuilder;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import javax.security.auth.login.LoginException;
@@ -23,7 +21,7 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 public class Main extends JavaPlugin {
-    private JDA jda;
+    public JDA jda;
 
     private static Main instance;
     private final CommandParser parser = new CommandParser();
@@ -36,6 +34,7 @@ public class Main extends JavaPlugin {
     private Logger logger;
 
     private long startTime;
+    private boolean pausedRelay;
 
     @Override
     public void onEnable() {
@@ -48,22 +47,25 @@ public class Main extends JavaPlugin {
             jda.shutdown();
     }
 
-    private void init() {
+    public void init() {
+        pausedRelay = false;
         startTime = System.currentTimeMillis();
         logger = getLogger();
         pluginFile = new PluginFile(this, "BotConfig", true);
         botConfig = new BotConfig(this);
         //discord side initialization
         try {
-            jda = new JDABuilder(AccountType.BOT).setToken(botConfig.BOT_TOKEN).buildBlocking();
-            jda.addEventListener(new BasicMathSolver(this));
-            jda.addEventListener(new Messenger(this));
-            jda.addEventListener(new CommandListener(this));
-            jda.setAutoReconnect(true);
+            JDABuilder jdaBuilder = new JDABuilder().setBotToken(botConfig.BOT_TOKEN);
+            jdaBuilder.addListener(new BasicMathSolver(this));
+            jdaBuilder.addListener(new Messenger(this));
+            jdaBuilder.addListener(new CommandListener(this));
+            jdaBuilder.setBulkDeleteSplittingEnabled(false);
+            jdaBuilder.setAutoReconnect(true);
+            jda = jdaBuilder.buildBlocking();
         } catch (LoginException e) {
             e.printStackTrace();
             System.err.println("Could not logger in");
-        } catch (InterruptedException | RateLimitedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         instance = this;
@@ -90,9 +92,6 @@ public class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new Messenger(this), this);
     }
 
-    public JDA getJda() {
-        return jda;
-    }
     public static Main getInstance() {
         return instance;
     }
@@ -117,17 +116,24 @@ public class Main extends JavaPlugin {
         return parser;
     }
 
+    public Boolean isRelayPaused() {
+        return pausedRelay;
+    }
+
+    public void setPausedRelay(Boolean b) {
+        pausedRelay = b;
+    }
+
     public void handleCommand(CommandParser.CommandContainer cmd) {
         if (commands.containsKey(cmd.invoke)) {
             boolean safe = commands.get(cmd.invoke).called(cmd.args, cmd.event);
             if (safe) {
                 commands.get(cmd.invoke).action(cmd.args, cmd.event);
-                commands.get(cmd.invoke).executed(true, cmd.event);
+                commands.get(cmd.invoke).executed(safe, cmd.event);
             } else
-                commands.get(cmd.invoke).executed(false, cmd.event);
+                commands.get(cmd.invoke).executed(safe, cmd.event);
         }
     }
-
 
     public String getUptime() {
         long currTime = System.currentTimeMillis();

@@ -4,8 +4,8 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
 import eb.cyrien.MineCordBot.utils.MessengerUtil;
-import net.dv8tion.jda.core.entities.Icon;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.utils.AvatarUtil;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,13 +36,12 @@ public class SetAvatar extends Command {
             URL url = new URL(args[0]);
             URLConnection conn = url.openConnection();
             InputStream in = conn.getInputStream();
-            e.getJDA().getSelfUser().getManager().setAvatar(Icon.from(in)).queue( consumer ->
-                    MessengerUtil.sendMessageToDiscord(e, "Success :ok_hand:")
-            );
+            e.getJDA().getAccountManager().setAvatar(AvatarUtil.getAvatar(in));
+            e.getJDA().getAccountManager().update();
             in.close();
         } catch (MalformedURLException e1) {
             e1.printStackTrace();
-            e.getTextChannel().sendMessage("\'MalformedURLException: please check if you entered a correct URL\'").queue();
+            e.getTextChannel().sendMessage("\'MalformedURLException: please check if you entered a correct URL\'");
             instance.getLogger().warning("MalformedURLException");
             return false;
         } catch (IOException e1) {
@@ -55,12 +54,17 @@ public class SetAvatar extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
+        MessengerUtil.sendTyping(.8, e);
+        e.getTextChannel().sendMessage("Setting Avatar");
     }
 
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
-        if (!success)
-            e.getTextChannel().sendMessage(noPermMessage()).queue();
+        if (success) {
+            MessengerUtil.sendTyping(3, e);
+            e.getTextChannel().sendMessage("Success :ok_hand:");
+        } else
+            e.getTextChannel().sendMessage(noPermMessage());
     }
 
     @Override

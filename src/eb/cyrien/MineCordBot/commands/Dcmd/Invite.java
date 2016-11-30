@@ -3,7 +3,7 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
 import eb.cyrien.MineCordBot.utils.MessengerUtil;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 public class Invite extends Command {
 
@@ -25,8 +25,8 @@ public class Invite extends Command {
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
         MessengerUtil.sendPrivateMessageToUser(e, "https://discordapp.com/oauth2/authorize?client_id=" + instance.getBotConfig().BOT_ID + "&scope=bot&permissions=0");
-        String botName = instance.getJda().getUserById(instance.getBotConfig().BOT_ID).getName();
-        MessengerUtil.sendMessageToDiscord(e.getTextChannel().getId(), e.getAuthor().getAsMention() + " the Oauth2 link for `" + botName + "` have been sent to you privately.");
+        String botName = instance.jda.getUserById(instance.getBotConfig().BOT_ID).getUsername();
+        MessengerUtil.sendMessageToDiscord(e, e.getAuthor().getAsMention() + " the Oauth2 link for `" + botName + "` have been send to you privately.");
     }
 
     @Override

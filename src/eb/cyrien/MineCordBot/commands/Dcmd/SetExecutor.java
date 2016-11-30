@@ -3,7 +3,7 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
 import eb.cyrien.MineCordBot.utils.MessengerUtil;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.io.IOException;
 
@@ -28,12 +28,8 @@ public class SetExecutor extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-        if (args == null || args.length == 0 || args.length > 1 ) {
+        if (args == null || args.length == 0 || args.length > 1) {
             MessengerUtil.sendMessageToDiscord(e.getTextChannel().getId(), invalidArgsMessage());
-            return;
-        }
-        if(args[0].equals("\\")) {
-            MessengerUtil.sendMessageToDiscord(e.getTextChannel().getId(), "Command Executor cannot be `" + "\\" + "`");
             return;
         }
         changeExecutor(args[0]);
@@ -43,7 +39,7 @@ public class SetExecutor extends Command {
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
         if (!success)
-            e.getTextChannel().sendMessage(noPermMessage()).queue();
+            e.getTextChannel().sendMessage(noPermMessage());
     }
 
     private void changeExecutor(String executor) {

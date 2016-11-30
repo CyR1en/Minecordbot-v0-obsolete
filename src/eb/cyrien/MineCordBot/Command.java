@@ -1,8 +1,7 @@
 package eb.cyrien.MineCordBot;
 
 import eb.cyrien.MineCordBot.entity.Messenger;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
-
+import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.ArrayList;
 
@@ -25,7 +24,7 @@ public abstract class Command extends Messenger {
         return "```css\n[You do not have permission]\n```";
     }
 
-    protected String invalidArgsMessage() {
+    public String invalidArgsMessage() {
         return "```css\n[Invalid Argument(s)]\n```";
     }
 
