@@ -2,8 +2,10 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
+import eb.cyrien.MineCordBot.entity.Messenger;
 import eb.cyrien.MineCordBot.utils.MessengerUtil;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.entities.Game;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 public class SetGame extends Command {
 
@@ -27,16 +29,12 @@ public class SetGame extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-        e.getJDA().getAccountManager().setGame(MessengerUtil.concatenateArgs(0, args));
-        e.getJDA().getAccountManager().update();
+        e.getJDA().getPresence().setGame(Game.of(MessengerUtil.concatenateArgs(0, args)));
     }
 
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
-        if (success) {
-            MessengerUtil.sendTyping(.8, e);
-            e.getTextChannel().sendMessage(":white_check_mark:");
-        } else
-            e.getTextChannel().sendMessage(noPermMessage());
+        if (!success)
+            e.getTextChannel().sendMessage(noPermMessage()).queue();
     }
 }

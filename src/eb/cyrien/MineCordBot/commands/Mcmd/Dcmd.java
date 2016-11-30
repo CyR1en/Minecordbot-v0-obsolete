@@ -1,6 +1,7 @@
 package eb.cyrien.MineCordBot.commands.Mcmd;
 
 import eb.cyrien.MineCordBot.Main;
+import eb.cyrien.MineCordBot.utils.BotConfig;
 import eb.cyrien.MineCordBot.utils.MessengerUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -16,20 +17,18 @@ public class Dcmd implements CommandExecutor {
     }
 
     private boolean preCommand(CommandSender commandSender, Command command, String[] args) {
-        if(!command.getName().equalsIgnoreCase("dcmd"))
+        if (!command.getName().equalsIgnoreCase("dcmd"))
             return usage(commandSender);
-        if(!commandSender.hasPermission("minecordbot.dcmd")) {
+        if (!commandSender.hasPermission("minecordbot.dcmd")) {
             commandSender.sendMessage(ChatColor.RED + "You have no permission to do Discord command from Minecraft");
             return false;
         }
-        if(args.length == 0 || args == null)
-            return usage(commandSender);
-        return true;
+        return !(args.length == 0) || usage(commandSender);
     }
 
     private void command(CommandSender commandSender, String[] args) {
-        for(String s : plugin.getBotConfig().BINDED_CHANNELS)
-            plugin.jda.getTextChannelById(s).sendMessage(MessengerUtil.concatenateArgs(0, args));
+        for(String s : BotConfig.BINDED_CHANNELS)
+            plugin.getJda().getTextChannelById(s).sendMessage(MessengerUtil.concatenateArgs(0, args));
         plugin.getLogger().info(commandSender.getName() + " Executed a discord command : " + args[0]);
     }
 

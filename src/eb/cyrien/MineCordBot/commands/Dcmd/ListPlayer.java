@@ -3,7 +3,8 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
 import eb.cyrien.MineCordBot.utils.MessengerUtil;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -44,7 +45,7 @@ public class ListPlayer extends Command {
             if (args[0].equalsIgnoreCase("update:true")) {
                 updating = true;
                 textChannelID = e.getTextChannel().getId();
-                messageID = e.getTextChannel().sendMessage(s).getId();
+                e.getTextChannel().sendMessage(s).queue(ms -> messageID = ms.getId());
                 mREvent = e;
                 System.out.println("Done enabling update ls feature");
             } else if (args[0].equalsIgnoreCase("update:false")) {
@@ -56,7 +57,9 @@ public class ListPlayer extends Command {
     }
 
     public static void updateList() {
-        mREvent.getJDA().getTextChannelById(textChannelID).getMessageById(messageID).updateMessage(generateList());
+        mREvent.getJDA().getTextChannelById(textChannelID).getMessageById(messageID).queue(message ->
+                message.editMessage(generateList()).queue()
+        );
     }
 
     public static void updateList(double delay) {

@@ -3,7 +3,8 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
 import eb.cyrien.MineCordBot.utils.MessengerUtil;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -58,12 +59,12 @@ public class TextChannel extends Command {
     @Override
     public void executed(boolean success, MessageReceivedEvent e) {
         if (!success)
-            e.getTextChannel().sendMessage(noPermMessage());
+            e.getTextChannel().sendMessage(noPermMessage()).queue();
     }
 
     private void addTextChannel(String textChannelID, MessageReceivedEvent e) {
         List<String> tc = (List<String>) instance.getPluginFile().getConfig().getList("chat_channel");
-        net.dv8tion.jda.entities.TextChannel c = instance.jda.getTextChannelById(textChannelID);
+        net.dv8tion.jda.core.entities.TextChannel c = instance.getJda().getTextChannelById(textChannelID);
         if (c != null) {
             tc.add(textChannelID);
             instance.getPluginFile().getConfig().set("chat_channel", tc);
@@ -115,8 +116,8 @@ public class TextChannel extends Command {
             return out;
         } else
         for (String s : instance.getBotConfig().BINDED_CHANNELS) {
-            String channelName = instance.jda.getTextChannelById(s).getName();
-            String serverName = instance.jda.getTextChannelById(s).getGuild().getName();
+            String channelName = instance.getJda().getTextChannelById(s).getName();
+            String serverName = instance.getJda().getTextChannelById(s).getGuild().getName();
             out += "\t Text Channel: " + s + "\n" + "\t\t - Guild: " + serverName + "\n"
                     + "\t\t - Channel Name: " + channelName + "\n";
         }

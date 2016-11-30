@@ -3,7 +3,7 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
 import eb.cyrien.MineCordBot.utils.MessengerUtil;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -29,11 +29,11 @@ public class Help extends Command {
         Map<String, Command> map = new TreeMap<>(instance.getCommands());
         if(args.length == 1) {
             if(!map.containsKey(args[0]))
-                e.getTextChannel().sendMessage("`There's no such " + args[0] + " command.`");
+                e.getTextChannel().sendMessage("`There's no such " + args[0] + " command.`").queue();
             else {
                 Command cmd = map.get(args[0]);
                 e.getTextChannel().sendMessage("_help for " + args[0] + "_\n" + "**Usage: **" + "``" + cmd.getUsage()
-                        + "``" + "\n**Description: **" + "``" + cmd.getDescription() + "``");
+                        + "``" + "\n**Description: **" + "``" + cmd.getDescription() + "``").queue();
             }
         } else if (args.length == 0 || args == null) {
             String cmdExec = instance.getBotConfig().COMMAND_EXECUTOR;
@@ -41,8 +41,7 @@ public class Help extends Command {
             for (Map.Entry<String, Command> entry : map.entrySet())
                 out += cmdExec + entry.getKey() + " - " + entry.getValue().getDescription() + "\n";
             out += "```";
-            MessengerUtil.sendTyping(.5, e);
-            e.getTextChannel().sendMessage(out);
+            e.getTextChannel().sendMessage(out).queue();
         }
     }
 

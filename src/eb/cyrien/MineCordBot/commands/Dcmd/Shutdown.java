@@ -3,7 +3,7 @@ package eb.cyrien.MineCordBot.commands.Dcmd;
 import eb.cyrien.MineCordBot.Command;
 import eb.cyrien.MineCordBot.Main;
 import eb.cyrien.MineCordBot.utils.MessengerUtil;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 public class Shutdown extends Command {
     private final String HELP = Main.getInstance().getBotConfig().COMMAND_EXECUTOR + "shutdown";
@@ -26,7 +26,7 @@ public class Shutdown extends Command {
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
         MessengerUtil.sendTyping(0.2, e);
-        e.getTextChannel().sendMessage(":wave:");
+        e.getTextChannel().sendMessage(":wave:").queue();
         e.getJDA().shutdown();
     }
 
