@@ -11,6 +11,9 @@ current version : **MineCordBot_R0.2.7**
  * Do Discord bot commands from minecraft and vice-versa.
  * Set your desired Discord command executor (Prefix to determine if a text is a command. i.e "~!", ~!sampleCommand).
  * It solves basic math for you. (i.e 1 + (4 * 5) /100)
+ * Auto config update.
+ * Minecraft command output on discord.
+ * Events broadcast is configurable.
 
 ## Commands
 **Discord Commands** - Commands that you can do in discord.
@@ -48,15 +51,23 @@ current version : **MineCordBot_R0.2.7**
  * minecordbot.dme    | command: /dme
  * minecordbot.reload | command: /minecordbot reload
  * minecordbot.dcmd   | command: /dcmd
+ * minecordbot.incognito.join | no command
+ * minecordbot.incognito.leave | no command
 
 ## Installation
 **First of all** - Make a discord Bot
  * Go to https://discordapp.com/developers/docs/intro
- * MyApplications > login > New Application.
- * Complete the form. Once that's done, click "Create Application".
- * Click "Create a Bot User", and then click "Yes, do it!"
- * Now add your bot to your Discord Server. Remeber to Replace "[Place your bot's Client ID]" with your bot's client ID
+ * Click MyApplications on the upper left side of the page.
+ * Log in with your Discord account.
+ * Click "New Application".
+ * Give your Application a name, discription, and an avatar(icon).
+ * Click "Create Application".
+ * Under "App Detail" section. Click on "Create a Bot User" and Click "Yes, do it!".
+ * Now add your bot to your Discord Server. copy the link provided below and Remeber to Replace "[Place your bot's Client ID]" with your bot's client ID. (Client ID can be found under the App Detail section)
  `https://discordapp.com/oauth2/authorize?client_id=[Place your bot's Client ID]&scope=bot&permissions=0`
+ * Log in with your Discord account if it tells you to do so. If not, under "Add bot to a server" click "Select a Server" and find the server where you want to add the bot.
+ * Click Authorize.
+ * After that, you're all done. You have made a new bot and added it on your server.
 
 **Install the plugin to your Minecraft Server**
  * Download MineCordBot.jar here https://dev.bukkit.org/bukkit-plugins/minecordbot-bukkit/
