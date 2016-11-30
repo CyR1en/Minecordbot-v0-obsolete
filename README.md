@@ -1,8 +1,6 @@
 # MineCordBot
 Bridge Minecraft and Discord using MineCordBot .
 
-_CB - CraftBukkit_
-
 _Tested on CB1.9.4, CB1.10, and Spigot1.10, CB1.11, Spigot1.11_
 
 current version : **MineCordBot_R-0.3.0**
