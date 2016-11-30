@@ -1,3 +1,6 @@
+# config version
+CONFIG_VERSION: 0.2.8
+
 # token of the bot that's going to be used
 bot_token: sample.bot_token
 
@@ -21,3 +24,10 @@ message_prefix_discord: Minecraft
 
 # message prefix that will be seen in minecraft. This support conventional Bukkit Formatting. i.e &6, &e, etc.
 message_prefix_minecraft: Discord
+
+# toggle different events to be broadcasted on discord
+broadcast:
+    death_event: true
+    join_event: true
+    leave_event: true
+    hide_user_with_incognito_perm: false
