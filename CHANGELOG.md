@@ -1,5 +1,24 @@
 # CHANGELOG
 
+## 0.3.0 (2016-10-30)
+
+**Feature**
+  
+  * Spigot, Bukkit, etc. 1.11 support.
+  * New config file auto update feature.
+  * Better /mcmd command. It now returns minecraft command output text to discord.
+  * Support for new Discord versions.(Reactions to be implemented)
+  * New API Version.
+  * config files now have versions.
+  * You can now toggle event broadcast for each event in the config file.
+  * New minecraft permission minecordbot.incognito.* (must be enabled in config)
+
+**Code**
+
+  * Almost all classes refactored for the new version of JDA support.
+  * Added new command sender type (for mcmd command).
+  * More function in BotConfig class.
+
 ## 0.2.7 (2016-10-29)
 
 **Feature**
