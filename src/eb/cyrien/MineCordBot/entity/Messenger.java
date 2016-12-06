@@ -42,14 +42,9 @@ public class Messenger extends ListenerAdapter implements Listener {
 
     public void relayToDiscord(Event e, String msg) {
         String author = ((PlayerEvent) e).getPlayer().getName();
-        BotConfig bcfg = instance.getBotConfig();
-        if (bcfg.BINDED_CHANNELS.size() != 0 && bcfg.BINDED_CHANNELS != null) {
-            for (String s : instance.getBotConfig().BINDED_CHANNELS)
-                instance.getJda().getTextChannelById(s).sendMessage("**" + instance.getBotConfig().MESSAGE_PREFIX_DISCORD + " ~ " + "[" + author + "]:**  " + msg).queue();
-            instance.getLogger().info(author + " > discord: " + msg);
-        } else {
-            instance.getMCBLogger().warning("There is no text channel binded to MineCordBot");
-        }
+        for (String s : instance.getBotConfig().BINDED_CHANNELS)
+            instance.getJda().getTextChannelById(s).sendMessage("**" + instance.getBotConfig().MESSAGE_PREFIX_DISCORD + " ~ " + "[" + author + "]:**  " + msg).queue();
+        instance.getLogger().info(author + " > discord: " + msg);
     }
 
     @Override
@@ -63,49 +58,39 @@ public class Messenger extends ListenerAdapter implements Listener {
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent e) {
         Player p = e.getPlayer();
-        BotConfig bcfg = instance.getBotConfig();
+        BotConfig bc = instance.getBotConfig();
         if (ListPlayer.updating)
             ListPlayer.updateList(0.5);
-        if ((p.hasPermission("minecordbot.incognito.leave") && bcfg.HIDE_WITH_PERM == true) || bcfg.LEAVE_BC == false) ;
-        if (bcfg.BINDED_CHANNELS.size() != 0 && bcfg.BINDED_CHANNELS != null)
-            MessengerUtil.sendMessageToDiscord("```css\n" + p.getName() + " left the game```");
-        else
-            instance.getMCBLogger().warning("There is no text channel binded to MineCordBot");
+        if ((p.hasPermission("minecordbot.incognito.leave") && bc.HIDE_WITH_PERM == true) || bc.LEAVE_BC == false);
+        MessengerUtil.sendMessageToDiscord("```css\n" + p.getName() + " left the game```");
     }
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
-        BotConfig bcfg = instance.getBotConfig();
+        BotConfig bc = instance.getBotConfig();
         if (ListPlayer.updating)
             ListPlayer.updateList();
-        if ((p.hasPermission("minecordbot.incognito.join") && bcfg.HIDE_WITH_PERM == true) || bcfg.JOINEVENT_BC == false) ;
-        if (bcfg.BINDED_CHANNELS.size() != 0 && bcfg.BINDED_CHANNELS != null)
-            MessengerUtil.sendMessageToDiscord("```css\n" + p.getName() + " joined the game```");
-        else
-            instance.getMCBLogger().warning("There is no text channel binded to MineCordBot");
+        if ((p.hasPermission("minecordbot.incognito.join") && bc.HIDE_WITH_PERM == true) || bc.JOINEVENT_BC == false);
+        MessengerUtil.sendMessageToDiscord("```css\n" + p.getName() + " joined the game```");
     }
 
     @EventHandler
     public void onPlayerDeath(final PlayerDeathEvent e) {
-        BotConfig bcfg = instance.getBotConfig();
-        if (instance.getBotConfig().DEATHEVENT_BC == false) ;
-        if (bcfg.BINDED_CHANNELS.size() != 0 && bcfg.BINDED_CHANNELS != null) {
-            Timer timer = new Timer(); //delay
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    String msg = e.getDeathMessage();
-                    msg.trim();
-                    if (msg.startsWith("["))
-                        msg.substring(1);
-                    if (msg.endsWith("]"))
-                        msg.substring(0, msg.length() - 2);
-                    MessengerUtil.sendMessageToDiscord("```css\n" + "[" + ChatColor.stripColor(msg) + "]\n" + "```");
-                }
-            }, 200);
-        } else
-            instance.getMCBLogger().warning("There is no text channel binded to MineCordBot");
+        if (instance.getBotConfig().DEATHEVENT_BC == false);
+        Timer timer = new Timer(); //delay
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                String msg = e.getDeathMessage();
+                msg.trim();
+                if (msg.startsWith("["))
+                    msg.substring(1);
+                if (msg.endsWith("]"))
+                    msg.substring(0, msg.length() - 2);
+                MessengerUtil.sendMessageToDiscord("```css\n" + "[" + ChatColor.stripColor(msg) + "]\n" + "```");
+            }
+        }, 200);
     }
 
     @EventHandler
@@ -114,13 +99,10 @@ public class Messenger extends ListenerAdapter implements Listener {
     }
 
     private boolean isValidTextChannel(String textChannelID) {
-        BotConfig bcfg = instance.getBotConfig();
-        if (bcfg.BINDED_CHANNELS.size() != 0 && bcfg.BINDED_CHANNELS != null) {
-            for (String s : instance.getBotConfig().BINDED_CHANNELS)
-                if (s.equalsIgnoreCase(textChannelID))
-                    return true;
-        } else
-            instance.getMCBLogger().warning("There is no text channel binded to MineCordBot");
+        for (String s : instance.getBotConfig().BINDED_CHANNELS)
+            if (s.equalsIgnoreCase(textChannelID))
+                return true;
         return false;
     }
+
 }

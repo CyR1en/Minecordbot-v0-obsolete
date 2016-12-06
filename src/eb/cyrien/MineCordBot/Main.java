@@ -82,7 +82,6 @@ public class Main extends JavaPlugin {
         commands.put("invite", new Invite(this));
         commands.put("setexecutor", new SetExecutor(this));
         commands.put("textchannel", new TextChannel(this));
-        commands.put("prefix", new Prefix(this));
 
         //minecraft side initialization
         this.getCommand("dme").setExecutor(new Dme(this));

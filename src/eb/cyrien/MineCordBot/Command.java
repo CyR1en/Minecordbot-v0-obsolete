@@ -2,6 +2,8 @@ package eb.cyrien.MineCordBot;
 
 import eb.cyrien.MineCordBot.entity.Messenger;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+
+
 import java.util.ArrayList;
 
 public abstract class Command extends Messenger {
@@ -24,7 +26,7 @@ public abstract class Command extends Messenger {
     }
 
     protected String invalidArgsMessage() {
-        return "```\n[Invalid Argument(s)]\nUsage: " + usage + "\n```";
+        return "```css\n[Invalid Argument(s)]\n```";
     }
 
     public String successMessage() {

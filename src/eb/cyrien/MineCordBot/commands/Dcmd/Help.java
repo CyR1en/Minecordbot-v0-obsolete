@@ -10,7 +10,7 @@ import java.util.TreeMap;
 
 public class Help extends Command {
 
-    private final String HELP = Main.getInstance().getBotConfig().COMMAND_EXECUTOR + "help [command]";
+    private final String HELP = Main.getInstance().getBotConfig().COMMAND_EXECUTOR + "help <command>";
     private final String DESCRIPTION = "List all commands.";
 
     public Help(Main instance) {

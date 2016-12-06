@@ -26,7 +26,7 @@ public class BasicMathSolver extends ListenerAdapter {
                 validEquation = false;
             }
             if(validEquation)
-                event.getTextChannel().sendMessage("`" + event.getMessage().getContent() + " = " + sol + "`").queue();
+                event.getTextChannel().sendMessage("`" + event.getMessage().getContent() + " = " + sol + "`");
         }
     }
 

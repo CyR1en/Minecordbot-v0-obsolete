@@ -27,15 +27,14 @@ public class Dcmd implements CommandExecutor {
     }
 
     private void command(CommandSender commandSender, String[] args) {
-        for (String s : BotConfig.BINDED_CHANNELS)
-            plugin.getJda().getTextChannelById(s).sendMessage(MessengerUtil.concatenateArgs(0, args)).queue(consumer ->
-                    plugin.getLogger().info(commandSender.getName() + " Executed a discord command : " + args[0])
-            );
+        for(String s : BotConfig.BINDED_CHANNELS)
+            plugin.getJda().getTextChannelById(s).sendMessage(MessengerUtil.concatenateArgs(0, args));
+        plugin.getLogger().info(commandSender.getName() + " Executed a discord command : " + args[0]);
     }
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] args) {
-        if (!preCommand(commandSender, command, args))
+        if(!preCommand(commandSender, command, args))
             return true;
         command(commandSender, args);
         return true;

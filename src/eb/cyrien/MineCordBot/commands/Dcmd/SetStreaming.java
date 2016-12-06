@@ -9,7 +9,7 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 public class SetStreaming extends Command {
 
-    private final String HELP = Main.getInstance().getBotConfig().COMMAND_EXECUTOR + "setstreaming <stream link> [stream title]";
+    private final String HELP = Main.getInstance().getBotConfig().COMMAND_EXECUTOR + "setstreaming <title> <streaming link>";
     private final String DESCRIPTION = "set what the bot is streaming";
 
     private String streamName;
@@ -32,8 +32,8 @@ public class SetStreaming extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-        streamName = args[1];
-        e.getJDA().getPresence().setGame(Game.of(streamName, args[0]));
+        streamName = args[0];
+        e.getJDA().getPresence().setGame(Game.of(streamName, args[1]));
     }
 
     @Override

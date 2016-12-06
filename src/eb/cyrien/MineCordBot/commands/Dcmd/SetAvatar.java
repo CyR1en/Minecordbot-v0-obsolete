@@ -55,7 +55,6 @@ public class SetAvatar extends Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent e) {
-
     }
 
     @Override

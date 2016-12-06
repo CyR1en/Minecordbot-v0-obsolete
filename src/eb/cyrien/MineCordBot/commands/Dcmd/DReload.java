@@ -10,7 +10,7 @@ import java.io.IOException;
 public class DReload extends Command {
 
     private final String HELP = BotConfig.COMMAND_EXECUTOR + "reload";
-    private final String DESCRIPTION = "Reload BotConfig.yml";
+    private final String DESCRIPTION = " Reload BotConfig.yml";
 
     public DReload (Main instance) {
         super(instance);
