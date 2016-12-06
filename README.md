@@ -3,7 +3,7 @@ Bridge Minecraft and Discord using MineCordBot .
 
 _Tested on CB1.9.4, CB1.10, and Spigot1.10, CB1.11, Spigot1.11_
 
-current version : **MineCordBot_R-0.3.0**
+current version : **MineCordBot_R-0.3.1**
 
 ## Feature
  * Binds multiple channel to Minecraft. (This includes, death, join, disconnect, etc. events)
@@ -39,6 +39,7 @@ current version : **MineCordBot_R-0.3.0**
  * ~!textchannel - text channel commands.
       - ~!textchannel [add:remove] [text channel id] - add or remove binded text channel.
       - ~!textchannel [list] - list all binded channel.
+ * ~!prefix [discord:minecraft] [replace] [new prefix].
  * _More commands to come_.
 
 **Minecraft Commands**
