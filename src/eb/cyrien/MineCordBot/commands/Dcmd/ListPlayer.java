@@ -14,7 +14,7 @@ import java.util.TimerTask;
 public class ListPlayer extends Command {
     public static boolean updating;
 
-    private final String HELP = Main.getInstance().getBotConfig().COMMAND_EXECUTOR + "ls \n + ls <update:(true or false)> \n + ls <update:true> <update interval(seconds)>";
+    private final String HELP = Main.getInstance().getBotConfig().COMMAND_EXECUTOR + "ls \n + ls [update:(true or false)]";
     private final String DESCRIPTION = "List all players currently online in your minecraft server";
 
     private static String messageID;

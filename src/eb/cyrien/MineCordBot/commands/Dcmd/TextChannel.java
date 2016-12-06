@@ -12,7 +12,7 @@ import java.util.List;
 
 public class TextChannel extends Command {
 
-    private final String HELP = Main.getInstance().getBotConfig().COMMAND_EXECUTOR + "textchannel <add:remove:list> [text channel ID]";
+    private final String HELP = Main.getInstance().getBotConfig().COMMAND_EXECUTOR + "textchannel [add:remove:list] <text channel ID>";
     private final String DESCRIPTION = "Add or Remove Minecraft Binded text channels";
 
     public TextChannel(Main instance) {
