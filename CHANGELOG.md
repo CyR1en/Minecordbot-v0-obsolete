@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 0.3.1 (2016-12-6)
+
+**Feature**
+  
+  * Added Prefix command.
+  * Better Invalid arguments message.
+
+**Bug fix**
+
+  * fixed Dcmd command output in discord.
+  * fixed math evaluator.
+  * fixed NullPointerExceptions when joining game.
+  * fixed command's help arguments.
+  
 ## 0.3.0 (2016-11-29)
 
 **Feature**
