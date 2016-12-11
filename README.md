@@ -1,102 +1,12 @@
-# MineCordBot
-Bridge Minecraft and Discord using MineCordBot .
-
-_Tested on CB1.9.4, CB1.10, and Spigot1.10, CB1.11, Spigot1.11_
-
-current version : **MineCordBot_R-0.3.1**
-
-## Feature
- * Binds multiple channel to Minecraft. (This includes, death, join, disconnect, etc. events)
- * Custom commands that applies to both Minecraft and Discord server.
- * Do Discord bot commands from minecraft and vice-versa.
- * Set your desired Discord command executor (Prefix to determine if a text is a command. i.e "~!", ~!sampleCommand).
- * It solves basic math for you. (i.e 1 + (4 * 5) /100)
- * Auto config update.
- * Minecraft command output on discord.
- * Events broadcast is configurable.
-
-## Commands
-**Discord Commands** - Commands that you can do in discord.
-
-`Usage: command_executor + command.`
-
- * ~!help - lists all the command you can do for the bot in discord.
- * ~!help [command] - better help for a specific command.
- * ~!setavatar [URL] - change the bot's avatar.
- * ~!setgame [game] - change what the bot's playing.
- * ~!setusername [username] - change username of the bot. _Important note: Username changes are limited to 2 an hour._
- * ~!setnick [nickname] - set the bot's nickname.
- * ~!setstreaming [title(can be anything)] [stream link - only streaming links] - let the bot stream something for the server.
- * ~!ping - test if the bot is resposinve.
- * ~!reload - reload botConfig.yml.
- * ~!ls - lists online players in the server.
-      - ~!ls [update:(true or false)]
- * ~!mcmd [command] - Do a minecraft command from discord.
- * ~!info - Know more information about the bot.
- * ~!shutdown - Shutdown the bot.
- * ~!setexecutor [executor] - sets the executor for the bot.
- * ~!invite - sends you the Oauth2 link to add the bot easily to a server.
- * ~!textchannel - text channel commands.
-      - ~!textchannel [add:remove] [text channel id] - add or remove binded text channel.
-      - ~!textchannel [list] - list all binded channel.
- * ~!prefix [discord:minecraft] [replace] [new prefix].
- * _More commands to come_.
-
-**Minecraft Commands**
- * /dme [description] - it's just like /me but it's connected to discord.
- * /minecordbot reload - reloads botConfig.yml.
- * /dcmd [discord command] - Do discord command from Minecraft
- * _More commands to come_.
-
-## Permission nodes
- * minecordbot.dme    | command: /dme
- * minecordbot.reload | command: /minecordbot reload
- * minecordbot.dcmd   | command: /dcmd
- * minecordbot.incognito.join | no command
- * minecordbot.incognito.leave | no command
-
-## Installation
-**First of all** - Make a discord Bot
- * Go to https://discordapp.com/developers/docs/intro
- * Click MyApplications on the upper left side of the page.
- * Log in with your Discord account.
- * Click "New Application".
- * Give your Application a name, discription, and an avatar(icon).
- * Click "Create Application".
- * Under "App Detail" section. Click on "Create a Bot User" and Click "Yes, do it!".
- * Now add your bot to your Discord Server. copy the link provided below and Remeber to Replace "[Place your bot's Client ID]" with your bot's client ID. (Client ID can be found under the App Detail section)
- `https://discordapp.com/oauth2/authorize?client_id=[Place your bot's Client ID]&scope=bot&permissions=0`
- * Log in with your Discord account if it tells you to do so. If not, under "Add bot to a server" click "Select a Server" and find the server where you want to add the bot.
- * Click Authorize.
- * After that, you're all done. You have made a new bot and added it on your server.
-
-**Install the plugin to your Minecraft Server**
- * Download MineCordBot.jar here https://dev.bukkit.org/bukkit-plugins/minecordbot-bukkit/
- * Put the jar file to your plugin folder in your minecraft server.
- * Start your server.
- * Configure your botConfig.yml
- * To easily get User ID and Channel ID. On Discord, go to settings > Appearance > enable developer mode. After that, just right click a user or a channel and then click "Copy ID" to get their ID.
- * Save your botConfig.yml.
- * Lastly restart your beautiful server.
- 
-## More Info
-This is a project for my Minecraft Server. I use it so that players could interact
-with everyone in-game or not.
-
-The plugin is currently in a very early stage. So please don't hate when you see some bugs.
-Also I'd say that i'm not the best at programming, since I don't have enough experience, and I've only studied computer science for a year.(I'm just 18 ;-;)
-
-MineCordBot is also written in Java for easier Minecraft support.
-
-Also I've only tested this on CrafBukkit1.9.4. But I will soon be testing newer version of CraftBukkit, even old versions.
-Maybe add support to other versions of Minecraft servers, and other plugins like Multiverse, etc.
-
-If you have any question don't hesitate to email me at cyrien3519@gmail.com or join my discord server.
-
-## Dependencies
-  * JDA - [https://github.com/DV8FromTheWorld/JDA]
-  * CraftBukkit [https://www.spigotmc.org/wiki/buildtools]
-
-## To see the bot in Action
-  * Join our Discord server: https://discord.gg/Dv7vbzJ
-  * Join our Minecraft server: thewobros.mcph.co
+<p style="text-align: center;"><img src="https://media-elerium.cursecdn.com/attachments/143/990/header-mcb.png" alt="" width="690" height="79" /></p>
+<hr />
+<p style="text-align: center;"><span style="font-size: 24px;">&nbsp;<strong>A powerful way to&nbsp;Bridge Minecraft and Discord</strong></span></p>
+<p style="text-align: center;"><span style="font-size: 12px;"><b>Simple, Easy to setup, and Configurable</b></span></p>
+<p style="text-align: center;">&nbsp; &nbsp;<a href="https://github.com/CyR1en/MineCordBot"><img src="http://developersnation.info/wp-content/uploads/2016/04/GitHub-Banner-Developers-Nation.png" alt="" width="170" height="63" /></a><a href="https://discord.gg/rEK5XmV"><img src="https://discordapp.com/assets/fc0b01fe10a0b8c602fb0106d8189d9b.png" alt="" width="170" height="58" /></a></p>
+<p style="text-align: center;"><b>Current Version: <a title="R-0.3.1" href="https://dev.bukkit.org/projects/minecordbot-bukkit/files/2352845">MineCordBot_R-0.3.1</a></b></p>
+<p style="text-align: center;"><span style="text-decoration: underline;"><em>Supports 1.7 - 1.11</em></span></p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><span style="text-decoration: underline;"><em><a title="i" href="https://dev.bukkit.org/projects/minecordbot-bukkit/pages/installation"><img src="https://lh3.googleusercontent.com/KgATtmS9q1GO4OGW9boqe9_lgDLTOMXUorx07LyQ1giqe8LlC9hFkHgmmK04O8-MGF2hZ7E0iBumLVpuEh1GfdFM-KXATRt0B1CahuOl5nKOKdnCloK3-jDaK_hKJc2C-MELF9qxX_qDfhW5I-bZ8hE3SOgp_RSaGyVtl7vWe2zXfevZgjlqjrXf54mDcKtBgvf4HPgc4u8TPhjjBtN9L14x59v1onhR14LwdFwVYEE0LnHuDMnW9kqPJSm3FpLUv4OmfW9peeD5Y5EO0N_4ABCO3DjWvZaJRoc3s40-eLKseWpYWfcuX3gYRlWmt0fN-jqFzH2oXdYr4EgiNkpaAfEWBNCSnOV9-LtRx9Jb_y6Wza44Sqk2pMA-hCkUTc_-GNUTaDFaIhHa_vbCIeaAsvyvb8CDF9HgVzZgbUFcqdMOVv0XeiwclqUK9ZqLWE0oF9EFMHy-aOfVJ9eblag8nR_BOaJ0np90DW8cNA7rCO50a19_Y7OHasnBeOhc-rIaawEW3AYt5o6yE2Jo02sbNQaUhcFXGXgL8JqljP3mqP_w7qryl7cajdrQ4277WzpYbH0GdCuMiUJ2PAUr5ErtrKEAy65omBK9nJ-QncAkdmgm4ba9KAoM=w190-h46-no" alt="" width="124" height="30" /></a><a title="cfg" href="https://dev.bukkit.org/projects/minecordbot-bukkit/pages/configuration"><img src="https://lh3.googleusercontent.com/m5ltYrlDr12GCxoy5CdreXcjIWx5QMDevF2gyvaF-luaUScPA4_2Xat3qpqg81sz3RUNKrQ4UOjZS7YfC7qqSFWgtGCcJKGIB0vhvc668Z3jxPcVEElKiD4cJ6SltTrzDPhptPd_pC1_1bPQrjaRn0IpHwhfxY-jIvimy8W_w86RLaBHKjWtgkRrJlmCBY6EghnECvMBOIDMd8KwRxD5pFRJbHqAvl_pFkuJVMHi-kmf6DyccKEX7W8y5UVy4GhHkfqTv-fDM9mts6b71eI8vRSP-8LGOpedfLpnML9iViUtXOPRdK2EAbpGMWxNvUnkE5B38226z7mggUbv1lxdz745kKLKBMoSNn5TPGScEcD-XTrVt_2iYNYulRRrMoeXqLiMQkYXTzskZGmOtjTjqAJ8cdcSH3u8flGrdiHqpcpDynXpSjsCxzkOQwVLbtbb-zzdAT_iWu5JNH7CN7pNzNBj2YLkmDJWhvvMAtknFHhHMpqz5nyyXd9eiGsJcprkQc74_zi3jhPrQAliqC5Nyl5En1fykMuXkdfW7e824WilUXZj1xVGYJbcoNCOXWb4o3ChjNxp9_ZJht5lx_DTd13nE3YVIpokxbK7VP9r3R25zN9QRkU1=w190-h46-no" alt="" width="124" height="30" /></a><a title="c" href="https://dev.bukkit.org/projects/minecordbot-bukkit/pages/commands"><img src="https://lh3.googleusercontent.com/lJX-Lf8e-KNcqlCoJndSa9blfMOjI57TH9_TEMYW0RYlroocJzfXzYklfzxaAUHUFdvb8Y2E6m9djNC5wojYF52gYFUPG5uP3wJRJoqPm0H8uSkCBweWPFq8lEUKKawKtU9P8I5KMtOMs9cLr88uOxsgAWZpTGEJ7wV60xVzYpeQWS_2f-J9gG-JRe_KK-isv1qVqWomXFjY2CfN4owl2f7JPd3tH-JDCl0fVQaoFbrvheZAd5SB33M_uEP9nhzYSqQioCwY4qlUCuRorS5w3kXkefv2Sz9AYoVD4zT4g0NSX54qGcu3yxWnsvWQNigb-HMNOdYp17Sh2xSCAzJVHV58tlxdrD-8pJvMM1ZG5eIht-wc5O30gjbaPjI5RutAsFzl_g9IPHGZ8HTi-6ACvtUUytnVF-i0FHVHkA0EJWE-LpkO1i2nuETNZDKdRNITUa9UYAzcikPB30BwIXGRUIVVcmyK9bWfg0zfWD7qmq5gEBq_g01h4e-OKVWoIc8MN5BkjrxT8rM__eXUbjYGOGM8ifpmEzLZhcJddWRR8CCRM2DQsNNv2bBN_0-HtQI13X9kscWGwNKkWFcFhpu2HQox547e_ouevthRbiaZu6PquLAVXO8d=w190-h46-no" alt="" width="120" height="29" /></a><a title="p" href="https://dev.bukkit.org/projects/minecordbot-bukkit/pages/commands/permissions"><img src="https://lh3.googleusercontent.com/WZiu4Kr0fXIKzL0GnAiJfYnJGm4HpdcwMA3LaZNPbxFkamnar2BAcabWORO6_2OPdSeqOIFVcy7BPZDxRHsQIrMlNaXT51V2ZLmDmdNcLg0iWACQJWIeoIR6-pkNKuMuYwQrw1a4NC5s4MxGU-CNtZK_tSblIvkD5pNpHFv1kToVOOCwvO61VCWEVfEnap10qNwquQwSAb1RobhY7tD-_jp-U6g6QOp9OzUx_V6cgCuxhi6P3Acp07xkgACjP5Q6ZzSUY9URnPjm64Hc8jiQICTVWnLLsWT7gpHLEDqWWEE_4ZyPuOwZGBuIZf8pe58-qt5daeCFsCTWk8oxE0RHbEaXNx7LZ4hNDDCMkR-02W4MF4HNWZR7_UExQl6iZ_dM_3XWD97ITGMbjqPqH-JzCdbf-9piLDd8ddp8TWr-odsg3hhojePMzIr6t1sxOfzw1FKVtN8WiLrUyrqXjYz9T304EkgWT0NtjmS7klPux6kyBBynxd4OtKjwQ1Sy8TsYcVMevu8GHzDAH1neFl_8ZojBIg7SeTFVSDy06Ueq23a5GBix_gxBxouZgJFgj9dIF0KxSjKLTOZ0PDJRQVVYGnjjJfVHKDPz7Zm0KT-jD3yCg7BAjJVn=w190-h46-no" alt="" width="120" height="29" /></a><a href="https://dev.bukkit.org/projects/minecordbot-bukkit/pages/frequently-asked-questions"><img src="https://lh3.googleusercontent.com/ci8FFhMr5gEK3akgzieQCV46E8oet_H-Gm0U5hZ6zGLw6YEnYs_mm0m00PzzfzfblRgVIKMTuk27wqv0GNwlRZtMq1kkXLmdxZkQfXHT_C8R89gUgpxamqh5UzfppSOhroghFKdXF7x91eRuyeOlx_Z_mn9h-KMm9ZXKa0dtwfg7R9TXTyU4FxEp1No94rxVdo1Wb5hImPU6gsj_Rfv_kArhb1UAHBEeayolsr0vA9M3tBMcwB45XbMZTijY-OQYvuvKG3W7YNexOoLsaNJT9HYf0vxMX-2HotnxaBfM6WAtyDfVv8PQOqpLrGjj9VdQxWYC-JIvfThoURx8OR8R9U5eKEzo4TMO-QWpC7UukjDa07doLU4FEoo9zAWhLu3DpA5Cmh1-UXLjAtjUGww5sm1r6zzdPUeCUC0NI1HfNtI3qt-k-iqTneWByc7H59WmuohLKd_xRQDXL8DQN-6tPSWcJNtshc9JWYlhygMO_JbCb6VPv8IWyXHAx76R373Prlzsr1PhUC6W64BcUjODc8dxCPOmgRF9DwhDbx0_BYgodep3KpA6sM85hh4GsiGn7HZdNQoYeqpKI8Ohq3LVHt_Q90eROeUWgU1LcKv8oDSP4jy3wPxZ=w190-h46-no" alt="" width="120" height="29" /></a></em></span>&nbsp;&nbsp;</p>
+<p style="text-align: center;"><a title="RandI" href="https://dev.bukkit.org/projects/minecordbot-bukkit/issues/create"><em><img src="http://www.shackbox.net/wp-content/uploads/2014/01/Debug-Bug-icon.png" alt="Report Bug or Issues" width="23" height="23" /></em></a><span style="text-decoration: underline;"><span style="color: #000000;"><a style="color: #000000;" title="RandI" href="https://dev.bukkit.org/projects/minecordbot-bukkit/issues/create"><span style="font-size: 12px;">report bug and issues</span></a></span></span></p>
+<p style="text-align: center;"><a href="https://www.paypal.com/cgi-bin/webscr?return=https://dev.bukkit.org/projects/minecordbot-bukkit?gameCategorySlug=bukkit-plugins&amp;projectID=101682&amp;cn=Add+special+instructions+to+the+addon+author()&amp;business=ebacurio%40gmail.com&amp;bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted&amp;cancel_return=https://dev.bukkit.org/projects/minecordbot-bukkit?gameCategorySlug=bukkit-plugins&amp;projectID=101682&amp;lc=US&amp;item_name=MineCordBot+(from+bukkit.org)&amp;cmd=_donations&amp;rm=1&amp;no_shipping=1&amp;currency_code=USD"><span style="text-decoration: underline;"><span style="color: #000000;"><span style="font-size: 12px;"><img src="http://nyc4a.org/file/PaypalDonateButton.jpg" alt="" width="82" height="19" /></span></span></span></a></p>
+<p style="text-align: center;">&nbsp;</p>
