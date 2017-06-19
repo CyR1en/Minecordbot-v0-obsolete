@@ -1,4 +1,4 @@
-<p align = "center">This is outdated..</p>
+<h1>OBSOLETE</h1>
 <p align = "center"><span style="font-size: 24px;">&nbsp;<strong>A powerful way to&nbsp;Bridge Minecraft and Discord</strong></span></p>
 <p align = "center"><span style="font-size: 12px;"><b>Simple, Easy to setup, and Configurable</b></span></p>
 <p align = "center">&nbsp; &nbsp;<a href="https://github.com/CyR1en/MineCordBot"><img src="http://developersnation.info/wp-content/uploads/2016/04/GitHub-Banner-Developers-Nation.png" alt="" width="170" height="63" /></a><a href="https://discord.gg/rEK5XmV"><img src="https://discordapp.com/assets/fc0b01fe10a0b8c602fb0106d8189d9b.png" alt="" width="170" height="58" /></a></p>
